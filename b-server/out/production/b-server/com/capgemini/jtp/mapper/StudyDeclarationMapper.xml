@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.jtp.mapper.StudyDeclarationMapper">
+
+    <select id="listStudyDeclaration" resultType="com.capgemini.jtp.entity.StudyDeclaration">
+        select b.id,chineseName,b.empId,EFcslevel,EFydlevel,EFYTDlevel,EFhours,BCZhours,Videohours,TEDtimes,TEDtimes,sharetimes,unqualified,note,b.createUser,b.createTime,b.updateUser,b.updateTime
+        from employee a RIGHT JOIN studydeclaration b on a.empId = b.empId and a.isDeleted=0
+        where b.isDeleted = '0'
+        <if test="StudyDeclarationSearch.search != null  and StudyDeclarationSearch.search !=''">
+            and (
+            `chineseName` like concat(concat('%',#{StudyDeclarationSearch.search,jdbcType=VARCHAR}),'%')
+            )
+        </if>
+
+        <if test="StudyDeclarationSearch.empId != null">
+            and b.empId = #{StudyDeclarationSearch.empId,jdbcType=BIGINT}
+        </if>
+
+        <if test="StudyDeclarationSearch.startDate != null and StudyDeclarationSearch.endDate != null">
+            and b.updateTime between #{StudyDeclarationSearch.startDate} and #{StudyDeclarationSearch.endDate}
+        </if>
+
+        <if test="StudyDeclarationSearch.start != null and StudyDeclarationSearch.size != null">
+            order by `id` limit #{StudyDeclarationSearch.start},#{StudyDeclarationSearch.size}
+        </if>
+    </select>
+
+    <select id="countStudyDeclarationName" resultType="Long">
+        select count(*)
+        from employee a RIGHT JOIN studydeclaration b on a.empId = b.empId and a.isDeleted=0
+        where b.isDeleted = '0'
+        <if test="StudyDeclarationSearch.search != null  and StudyDeclarationSearch.search !=''">
+            and (
+            `chineseName` like concat(concat('%',#{StudyDeclarationSearch.search,jdbcType=VARCHAR}),'%')
+            )
+        </if>
+        <if test="StudyDeclarationSearch.empId != null">
+            and b.empId = #{StudyDeclarationSearch.empId,jdbcType=BIGINT}
+        </if>
+    </select>
+
+    <select id="getStudyDeclarationName" resultType="String">
+        select `chineseName` from employee
+        where `isDeleted` = '0' and `empId` = #{empId}
+    </select>
+
+    <select id="getCreateUser" resultType="Long">
+        select createUser from studydeclaration where id  = #{id}
+    </select>
+
+    <update id="updateStudyDeclarationById" parameterType="com.capgemini.jtp.entity.StudyDeclaration">
+        update studydeclaration
+        <set>
+            <if test="studyDeclaration.empId != null">
+                `empId` = #{studyDeclaration.empId,jdbcType=VARCHAR},
+            </if>
+            <if test="studyDeclaration.EFcslevel != null">
+                `EFcslevel` = #{studyDeclaration.EFcslevel,jdbcType=VARCHAR},
+            </if>
+            <if test="studyDeclaration.EFydlevel != null">
+                `EFydlevel` = #{studyDeclaration.EFydlevel,jdbcType=VARCHAR},
+            </if>
+            <if test="studyDeclaration.EFYTDlevel != null">
+                `EFYTDlevel` = #{studyDeclaration.EFYTDlevel,jdbcType=VARCHAR},
+            </if>
+
+            <if test="studyDeclaration.EFhours != null">
+                `EFhours` = #{studyDeclaration.EFhours,jdbcType=BIGINT},
+            </if>
+            <if test="studyDeclaration.BCZhours != null">
+                `BCZhours` = #{studyDeclaration.BCZhours,jdbcType=BIGINT},
+            </if>
+            <if test="studyDeclaration.Videohours != null">
+                `Videohours` = #{studyDeclaration.Videohours,jdbcType=BIGINT},
+            </if>
+
+            <if test="studyDeclaration.TEDtimes != null">
+                `TEDtimes` = #{studyDeclaration.TEDtimes,jdbcType=BIGINT},
+            </if>
+            <if test="studyDeclaration.sharetimes != null">
+                `sharetimes` = #{studyDeclaration.sharetimes,jdbcType=BIGINT},
+            </if>
+
+            <if test="studyDeclaration.unqualified != null">
+                `Videohours` = #{studyDeclaration.unqualified,jdbcType=BIGINT},
+            </if>
+
+
+            <if test="studyDeclaration.note != null">
+                `note` = #{studyDeclaration.note,jdbcType=VARCHAR},
+            </if>
+
+            <if test="studyDeclaration.updateUser != null">
+                `updateUser` = #{studyDeclaration.updateUser,jdbcType=BIGINT},
+            </if>
+            <if test="studyDeclaration.updateTime != null">
+                `updateTime` = #{studyDeclaration.updateTime},
+            </if>
+        </set>
+        where id = #{studyDeclaration.id,jdbcType=BIGINT}
+    </update>
+
+    <insert id="addStudyDeclarationRecord" parameterType="com.capgemini.jtp.entity.StudyDeclaration">
+         insert into studydeclaration (`empid`,`EFhours` ,`BCZhours`, `Videohours`,`TEDtimes`, `sharetimes`, `unqualified`, `note`, `EFcslevel`,`EFydlevel`,`EFYTDlevel`,`createTime`,`createUser`,`updateTime`,`updateUser`)
+    values (#{studyDeclaration.empId,jdbcType=BIGINT},#{studyDeclaration.EFhours,jdbcType=BIGINT},
+     #{studyDeclaration.BCZhours,jdbcType=BIGINT}, #{studyDeclaration.Videohours,jdbcType=BIGINT},
+     #{studyDeclaration.TEDtimes,jdbcType=BIGINT}, #{studyDeclaration.sharetimes,jdbcType=BIGINT},
+     #{studyDeclaration.unqualified,jdbcType=BIGINT}, #{studyDeclaration.note,jdbcType=VARCHAR},
+     #{studyDeclaration.EFcslevel,jdbcType=VARCHAR},#{studyDeclaration.EFydlevel,jdbcType=VARCHAR},
+     #{studyDeclaration.EFYTDlevel,jdbcType=VARCHAR},#{studyDeclaration.createTime},#{studyDeclaration.createUser,jdbcType=BIGINT},
+     #{studyDeclaration.updateTime},#{studyDeclaration.updateUser,jdbcType=BIGINT})
+    </insert>
+
+    <update id="deleteStudyDeclarationRecordById" parameterType="com.capgemini.jtp.entity.StudyDeclaration">
+        update studydeclaration
+        set `isDeleted` = '1', `updateUser` = #{studyDeclaration.updateUser,jdbcType=BIGINT}, `updateTime` = #{studyDeclaration.updateTime}
+        where id = #{studyDeclaration.id,jdbcType=BIGINT}
+    </update>
+
+    <select id="getAll" resultType="com.capgemini.jtp.entity.StudyDeclaration">
+        select * from studydeclaration where isDeleted=0
+    </select>
+
+    <select id="getLastStudyDeclarationCreateDates" resultType="java.util.Date" parameterType="com.capgemini.jtp.vo.employee.request.StudyDeclarationEditVo">
+        SELECT `createtime` from studydeclaration where `createtime`=(select max(createtime) from studydeclaration where empId = #{studyDeclarationEditVo.empId,jdbcType=BIGINT}  and `isDeleted` = '0')
+    </select>
+
+<!--获取Rid-->
+    <select id="getRid" resultType="Long" parameterType="Long">
+        select rid from hr_role where hrid = #{empId}
+    </select>
+
+
+    <insert id="insertProBatch">
+        insert into studydeclaration (`empid`,`EFhours` ,`BCZhours`, `Videohours`,`TEDtimes`, `sharetimes`, `unqualified`, `note`, `EFcslevel`,`EFydlevel`,`EFYTDlevel`,`createTime`,`createUser`,`updateTime`,`updateUser`)
+    values
+    <foreach collection="pros" item="pro" separator=",">
+        (#{pro.empId,jdbcType=BIGINT},#{pro.EFhours,jdbcType=BIGINT},
+        #{pro.BCZhours,jdbcType=BIGINT}, #{pro.Videohours,jdbcType=BIGINT},
+        #{pro.TEDtimes,jdbcType=BIGINT}, #{pro.sharetimes,jdbcType=BIGINT},
+        #{pro.unqualified,jdbcType=BIGINT}, #{pro.note,jdbcType=VARCHAR},
+        #{pro.EFcslevel,jdbcType=VARCHAR},#{pro.EFydlevel,jdbcType=VARCHAR},
+        #{pro.EFYTDlevel,jdbcType=VARCHAR},#{pro.createTime},
+        #{pro.createUser,jdbcType=BIGINT},
+        #{pro.updateTime},#{pro.updateUser,jdbcType=BIGINT})
+    </foreach>
+    </insert>
+
+</mapper>

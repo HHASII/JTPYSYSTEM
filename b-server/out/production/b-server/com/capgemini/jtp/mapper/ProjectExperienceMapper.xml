@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.jtp.mapper.ProjectExperienceMapper">
+
+  <resultMap id="BaseResultMap" type="com.capgemini.jtp.entity.ProjectExperience">
+    <result column="empId" jdbcType="BIGINT" property="empId" />
+    <result column="projectName" jdbcType="VARCHAR" property="projectName" />
+    <result column="projectManager" jdbcType="VARCHAR" property="projectManager" />
+    <result column="joinTime" jdbcType="DATE" property="joinTime" />
+    <result column="endTime" jdbcType="DATE" property="endTime" />
+  </resultMap>
+
+
+
+  <select id="getEmpName" resultType="String">
+    select `chineseName` from employee
+    where `isDeleted` = '0' and `empId` = #{empId}
+  </select>
+
+
+  <select id="countProjectExperience" resultType="Long">
+    select count(*) from project_experience,employee
+    where project_experience.isDeleted = '0' and project_experience.empId=employee.empId and employee.isDeleted=0
+    <if test="projectExperienceSearch.search != null">
+      and (
+      `projectName` like concat(concat('%',#{projectExperienceSearch.search,jdbcType=VARCHAR}),'%') or
+      `projectManager` like concat(concat('%',#{projectExperienceSearch.search,jdbcType=VARCHAR}),'%')or
+      `account` like concat(concat('%',#{projectExperienceSearch.search,jdbcType=VARCHAR}),'%') or
+      `chineseName` like concat(concat('%',#{projectExperienceSearch.search,jdbcType=VARCHAR}),'%')
+      )
+    </if>
+    <if test="projectExperienceSearch.account != null and projectExperienceSearch.account !=''">
+      and account = #{projectExperienceSearch.account,jdbcType=VARCHAR}
+    </if>
+    <if test="projectExperienceSearch.projectName != null and projectExperienceSearch.projectName !=''">
+      and projectName = #{projectExperienceSearch.projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectExperienceSearch.projectManager != null and projectExperienceSearch.projectManager !=''">
+      and projectManager = #{projectExperienceSearch.projectManager,jdbcType=VARCHAR}
+    </if>
+    <if test="projectExperienceSearch.empId != null and projectExperienceSearch.empId !=0">
+      and project_experience.empId = #{projectExperienceSearch.empId,jdbcType=BIGINT}
+    </if>
+    <if test="projectExperienceSearch.startBeginDate != null and projectExperienceSearch.endBeginDate != null">
+      and joinTime between #{projectExperienceSearch.startBeginDate} and #{projectExperienceSearch.endBeginDate}
+    </if>
+  </select>
+
+
+  <select id="listProjectExperience" resultType="com.capgemini.jtp.entity.ProjectExperience">
+    select b.id,chineseName,b.empId,projectName,projectManager,joinTime,endTime,account,b.createUser,b.createTime,b.updateUser,b.updateTime
+    from employee a RIGHT JOIN project_experience b on a.empId = b.empId and a.isDeleted=0
+    where b.isDeleted = '0'
+    <if test="projectExperienceSearch.search != null">
+      and (
+      `projectName` like concat(concat('%',#{projectExperienceSearch.search,jdbcType=VARCHAR}),'%') or
+      `projectManager` like concat(concat('%',#{projectExperienceSearch.search,jdbcType=VARCHAR}),'%')or
+      `account` like concat(concat('%',#{projectExperienceSearch.search,jdbcType=VARCHAR}),'%') or
+      `chineseName` like concat(concat('%',#{projectExperienceSearch.search,jdbcType=VARCHAR}),'%')
+      )
+    </if>
+    <if test="projectExperienceSearch.account != null and projectExperienceSearch.account !=''">
+      and b.account = #{projectExperienceSearch.account,jdbcType=VARCHAR}
+    </if>
+    <if test="projectExperienceSearch.projectName != null and projectExperienceSearch.projectName !=''">
+      and b.projectName = #{projectExperienceSearch.projectName,jdbcType=VARCHAR}
+    </if>
+    <if test="projectExperienceSearch.projectManager != null and projectExperienceSearch.projectManager !=''">
+      and b.projectManager = #{projectExperienceSearch.projectManager,jdbcType=VARCHAR}
+    </if>
+    <if test="projectExperienceSearch.empId != null and projectExperienceSearch.empId !=0">
+      and b.empId = #{projectExperienceSearch.empId,jdbcType=BIGINT}
+    </if>
+    <if test="projectExperienceSearch.startBeginDate != null and projectExperienceSearch.endBeginDate != null">
+      and b.joinTime between #{projectExperienceSearch.startBeginDate} and #{projectExperienceSearch.endBeginDate}
+    </if>
+    <if test="projectExperienceSearch.start != null and projectExperienceSearch.size != null">
+      order by id limit #{projectExperienceSearch.start},#{projectExperienceSearch.size}
+    </if>
+  </select>
+
+  <insert id="insertProject" parameterType="com.capgemini.jtp.entity.ProjectExperience">
+    insert into project_experience (`empId`,`account` ,`projectName`, `projectManager`,`joinTime`, `endTime`, `createUser`, `createTime`, `updateUser`,`updateTime`)
+    values (#{project.empId,jdbcType=VARCHAR},#{project.account,jdbcType=VARCHAR}, #{project.projectName,jdbcType=VARCHAR}, #{project.projectManager},#{project.joinTime}, #{project.endTime}, #{project.createUser,jdbcType=BIGINT},#{project.createTime}, #{project.updateUser,jdbcType=BIGINT}, #{project.updateTime})
+  </insert>
+
+
+  <update id="updateProjectById" parameterType="com.capgemini.jtp.entity.ProjectExperience">
+    update project_experience
+    <set>
+      <if test="project.empId != null and project.empId !=0">
+        `empId` = #{project.empId,jdbcType=VARCHAR},
+      </if>
+      <if test="project.account != null and project.account !=''">
+        `account` = #{project.account,jdbcType=VARCHAR},
+      </if>
+      <if test="project.projectName != null and project.projectName !=''">
+        `projectName` = #{project.projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="project.projectManager != null and project.projectManager !=''">
+        `projectManager` = #{project.projectManager},
+      </if>
+      <if test="project.joinTime != null">
+        `joinTime` = #{project.joinTime},
+      </if>
+      <if test="project.endTime != null">
+        `endTime` = #{project.endTime},
+      </if>
+      <if test="project.updateUser != null and project.updateUser !=0">
+        `updateUser` = #{project.updateUser,jdbcType=BIGINT},
+      </if>
+      <if test="project.updateTime != null">
+        `updateTime` = #{project.updateTime},
+      </if>
+    </set>
+    where id = #{project.id,jdbcType=BIGINT}
+  </update>
+
+
+  <update id="deleteProjectById" parameterType="com.capgemini.jtp.entity.ProjectExperience">
+    update project_experience
+    set `isDeleted` = '1', `updateUser` = #{project.updateUser,jdbcType=BIGINT}, `updateTime` = #{project.updateTime}
+    where id = #{project.id,jdbcType=BIGINT}
+  </update>
+
+  <update id="deleteProjectInfoByEmpId" parameterType="com.capgemini.jtp.entity.ProjectExperience">
+    update project_experience
+    set `isDeleted` = '1', `updateUser` = #{project.updateUser,jdbcType=BIGINT}, `updateTime` = #{project.updateTime}
+    where empId = #{project.empId,jdbcType=BIGINT}
+  </update>
+
+  <select id="getAllPros" resultType="com.capgemini.jtp.entity.ProjectExperience">
+        select * from project_experience
+        where `isDeleted` = '0' order by `id`
+    </select>
+
+
+  <update id="deleteProBatch" parameterType="java.util.List">
+    <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+      update project_experience
+      <set>
+        `isDeleted` = '1',
+        `updateUser` = #{item.updateUser,jdbcType=BIGINT},
+        `updateTime` = #{item.updateTime}
+      </set>
+      <where>
+        id = #{item.id,jdbcType=BIGINT}
+      </where>
+    </foreach>
+  </update>
+
+  <insert id="insertProBatch">
+    insert into  project_experience (`empId`,`account` ,`projectName`, `projectManager`,`joinTime`, `endTime`,`createUser`,`createTime`,`updateUser`,`updateTime`)
+    values
+    <foreach collection="pros" item="pro" separator=",">
+      (#{pro.empId,jdbcType=VARCHAR},#{pro.account,jdbcType=VARCHAR}, #{pro.projectName,jdbcType=VARCHAR}, #{pro.projectManager},#{pro.joinTime}, #{pro.endTime},
+      #{pro.createUser,jdbcType=BIGINT},#{pro.createTime},#{pro.updateUser,jdbcType=BIGINT},#{pro.updateTime}
+      )
+    </foreach>
+  </insert>
+
+  <select id="getCreateUser" resultType="Long">
+    select createUser from project_experience where id  = #{id}
+  </select>
+
+
+
+</mapper>

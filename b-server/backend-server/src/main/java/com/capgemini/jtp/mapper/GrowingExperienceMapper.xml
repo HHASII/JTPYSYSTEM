@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.jtp.mapper.GrowingExperienceMapper">
+
+  <resultMap id="BaseResultMap" type="com.capgemini.jtp.entity.GrowingExperience">
+    <result column="empId" jdbcType="BIGINT" property="empId" />
+    <result column="growingType" jdbcType="VARCHAR" property="growingType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.capgemini.jtp.entity.GrowingExperience">
+    <result column="growingDetail" jdbcType="LONGVARCHAR" property="growingDetail" />
+  </resultMap>
+
+  <insert id="insertExperience" parameterType="com.capgemini.jtp.entity.GrowingExperience">
+    insert into growing_experience (`empId`,  `growingType`, `growingDetail` , `createUser`, `createTime`, `updateUser`, `updateTime`)
+    values (#{experience.empId,jdbcType=VARCHAR},#{experience.growingType,jdbcType=VARCHAR}, #{experience.growingDetail,jdbcType=VARCHAR},
+                #{experience.createUser,jdbcType=BIGINT},#{experience.createTime}, #{experience.updateUser,jdbcType=BIGINT}, #{experience.updateTime})
+  </insert>
+
+  <select id="listExperience" resultType="com.capgemini.jtp.entity.GrowingExperience">
+    select b.id,chineseName,b.empId,growingType,growingDetail,b.createUser,b.createTime,b.updateUser,b.updateTime
+    from  employee a RIGHT JOIN growing_experience b on a.empId = b.empId and a.isDeleted=0
+    where b.isDeleted = '0'
+    <if test="experienceSearch.search!= null">
+      and (`growingType` like concat(concat('%',#{experienceSearch.search,jdbcType=VARCHAR}),'%') or
+      `growingDetail` like  concat(concat('%',#{experienceSearch.search,jdbcType=VARCHAR}),'%') or
+      `chineseName` like concat(concat('%',#{experienceSearch.search,jdbcType=VARCHAR}),'%')
+      )
+    </if>
+    <if test="experienceSearch.empId != null">
+        and b.empId = #{experienceSearch.empId,jdbcType=BIGINT}
+    </if>
+    <if test="experienceSearch.start != null and experienceSearch.size != null">
+      order by b.id limit #{experienceSearch.start},#{experienceSearch.size}
+    </if>
+  </select>
+
+  <select id="countExperience" resultType="Long">
+    select count(*) from growing_experience,employee
+    where growing_experience.isDeleted = '0' and growing_experience.empId = employee.empId and employee.isDeleted=0
+    <if test="experienceSearch.search != null">
+      and (`growingType` like concat(concat('%',#{experienceSearch.search,jdbcType=VARCHAR}),'%') or
+      `growingDetail` like  concat(concat('%',#{experienceSearch.search,jdbcType=VARCHAR}),'%') or
+      `chineseName` like concat(concat('%',#{experienceSearch.search,jdbcType=VARCHAR}),'%')
+      )
+    </if>
+    <if test="experienceSearch.empId != null">
+      and growing_experience.empId = #{experienceSearch.empId,jdbcType=BIGINT}
+    </if>
+  </select>
+
+  <select id="getEmpName" resultType="String">
+    select `chineseName` from employee
+    where `isDeleted` = '0' and `empId` = #{empId}
+  </select>
+
+  <update id="updateExperienceById" parameterType="com.capgemini.jtp.entity.GrowingExperience">
+    update growing_experience
+    <set>
+      <if test="experience.empId != null">
+        `empId` = #{experience.empId,jdbcType=VARCHAR},
+      </if>
+      <if test="experience.growingType != null">
+        `growingType` = #{experience.growingType,jdbcType=VARCHAR},
+      </if>
+      <if test="experience.growingDetail != null">
+        `growingDetail` = #{experience.growingDetail},
+      </if>
+
+      <if test="experience.updateUser != null">
+        `updateUser` = #{experience.updateUser,jdbcType=BIGINT},
+      </if>
+      <if test="experience.updateTime != null">
+        `updateTime` = #{experience.updateTime},
+      </if>
+    </set>
+    where id = #{experience.id,jdbcType=BIGINT}
+  </update>
+
+  <update id="deleteExperienceById" parameterType="com.capgemini.jtp.entity.GrowingExperience">
+        update growing_experience
+        set `isDeleted` = '1', `updateUser` = #{experience.updateUser,jdbcType=BIGINT}, `updateTime` = #{experience.updateTime}
+        where id = #{experience.id,jdbcType=BIGINT}
+    </update>
+
+  <update id="deleteExperienceInfoByEmpId" parameterType="com.capgemini.jtp.entity.GrowingExperience">
+        update growing_experience
+        set `isDeleted` = '1', `updateUser` = #{experience.updateUser,jdbcType=BIGINT}, `updateTime` = #{experience.updateTime}
+        where empId = #{experience.empId,jdbcType=BIGINT}
+    </update>
+
+  <select id="getAllGrows" resultType="com.capgemini.jtp.entity.GrowingExperience">
+        select * from growing_experience
+        where `isDeleted` = '0' order by `id`
+    </select>
+
+  <update id="deleteExpBatch" parameterType="java.util.List">
+    <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+      update growing_experience
+      <set>
+        `isDeleted` = '1',
+        `updateUser` = #{item.updateUser,jdbcType=BIGINT},
+        `updateTime` = #{item.updateTime}
+      </set>
+      <where>
+        id = #{item.id,jdbcType=BIGINT}
+      </where>
+    </foreach>
+  </update>
+
+  <insert id="insertGrowBatch">
+    insert into growing_experience (`empId`,  `growingType`, `growingDetail`,`createUser`,`createTime`,`updateUser`,`updateTime`)
+    values
+    <foreach collection="grows" item="grow" separator=",">
+      (#{grow.empId,jdbcType=VARCHAR},#{grow.growingType,jdbcType=VARCHAR}, #{grow.growingDetail,jdbcType=VARCHAR},
+      #{grow.createUser,jdbcType=BIGINT},#{grow.createTime},#{grow.updateUser,jdbcType=BIGINT},#{grow.updateTime})
+    </foreach>
+  </insert>
+
+  <select id="getCreateUser" resultType="Long">
+    select createUser from growing_experience where id  = #{id}
+  </select>
+
+</mapper>

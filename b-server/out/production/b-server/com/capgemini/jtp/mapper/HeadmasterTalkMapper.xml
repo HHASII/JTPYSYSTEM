@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.jtp.mapper.HeadmasterTalkMapper">
+
+    <select id="listTalk" resultType="com.capgemini.jtp.entity.HeadmasterTalk">
+        select b.id,chineseName,b.empId,talkType,talkContent,headMaster,b.createUser,b.createTime,b.updateUser,b.updateTime
+        from employee a RIGHT JOIN headmaster_talk b on a.empId = b.empId and a.isDeleted=0
+        where b.isDeleted = '0'
+        <if test="talkSearch.search!= null">
+            and (`talkType` like concat(concat('%',#{talkSearch.search,jdbcType=VARCHAR}),'%')or
+             `talkContent` like concat(concat('%',#{talkSearch.search,jdbcType=VARCHAR}),'%')or
+            `chineseName` like concat(concat('%',#{talkSearch.search,jdbcType=VARCHAR}),'%')or
+            `headMaster` like concat(concat('%',#{talkSearch.search,jdbcType=VARCHAR}),'%')
+             )
+        </if>
+        <if test="talkSearch.empId != null">
+            and b.empId = #{talkSearch.empId,jdbcType=BIGINT}
+        </if>
+        <if test="talkSearch.start != null and talkSearch.size != null">
+            order by b.id limit #{talkSearch.start},#{talkSearch.size}
+        </if>
+    </select>
+
+    <select id="countTalk" resultType="Long">
+        select count(*) from headmaster_talk,employee
+        where headmaster_talk.isDeleted = '0' and headmaster_talk.empId=employee.empId and employee.isDeleted=0
+        <if test="talkSearch.search!= null">
+            and (`talkType` like concat(concat('%',#{talkSearch.search,jdbcType=VARCHAR}),'%')or
+            `talkContent` like concat(concat('%',#{talkSearch.search,jdbcType=VARCHAR}),'%')or
+            `chineseName` like concat(concat('%',#{talkSearch.search,jdbcType=VARCHAR}),'%')or
+            `headMaster` like concat(concat('%',#{talkSearch.search,jdbcType=VARCHAR}),'%')
+            )
+        </if>
+        <if test="talkSearch.empId != null">
+            and headmaster_talk.empId = #{talkSearch.empId,jdbcType=BIGINT}
+        </if>
+    </select>
+
+    <select id="getEmpName" resultType="String">
+        select `chineseName` from employee
+        where `isDeleted` = '0' and `empId` = #{empId}
+    </select>
+
+    <insert id="insertTalk" parameterType="com.capgemini.jtp.entity.HeadmasterTalk">
+        insert into headmaster_talk (`empId`, `talkType`, `talkContent`,`headMaster`, `createUser`, `createTime`, `updateUser`, `updateTime`)
+        values (#{talk.empId,jdbcType=VARCHAR},#{talk.talkType,jdbcType=VARCHAR}, #{talk.talkContent,jdbcType=VARCHAR},#{talk.headMaster,jdbcType=VARCHAR},
+                #{talk.createUser,jdbcType=BIGINT},#{talk.createTime}, #{talk.updateUser,jdbcType=BIGINT}, #{talk.updateTime})
+    </insert>
+
+    <update id="updateTalkById" parameterType="com.capgemini.jtp.entity.HeadmasterTalk">
+        update headmaster_talk
+        <set>
+            <if test="talk.empId != null">
+                `empId` = #{talk.empId,jdbcType=VARCHAR},
+            </if>
+            <if test="talk.talkType != null">
+                `talkType` = #{talk.talkType,jdbcType=VARCHAR},
+            </if>
+            <if test="talk.talkContent != null">
+                `talkContent` = #{talk.talkContent,jdbcType=VARCHAR},
+            </if>
+            <if test="talk.headMaster != null">
+                `headMaster` = #{talk.headMaster,jdbcType=VARCHAR},
+            </if>
+            <if test="talk.updateUser != null">
+                `updateUser` = #{talk.updateUser,jdbcType=BIGINT},
+            </if>
+            <if test="talk.updateTime != null">
+                `updateTime` = #{talk.updateTime},
+            </if>
+        </set>
+        where id = #{talk.id,jdbcType=BIGINT}
+    </update>
+
+    <update id="deleteTalkById" parameterType="com.capgemini.jtp.entity.HeadmasterTalk">
+        update headmaster_talk
+        set `isDeleted` = '1', `updateUser` = #{talk.updateUser,jdbcType=BIGINT}, `updateTime` = #{talk.updateTime}
+        where id = #{talk.id,jdbcType=BIGINT}
+    </update>
+
+    <update id="deleteTalkInfoByEmpId" parameterType="com.capgemini.jtp.entity.HeadmasterTalk">
+        update headmaster_talk
+        set `isDeleted` = '1', `updateUser` = #{talk.updateUser,jdbcType=BIGINT}, `updateTime` = #{talk.updateTime}
+        where empId = #{talk.empId,jdbcType=BIGINT}
+    </update>
+
+    <select id="getAllTalks" resultType="com.capgemini.jtp.entity.HeadmasterTalk">
+        select * from headmaster_talk
+        where `isDeleted` = '0' order by `id`
+    </select>
+
+    <update id="deleteTalkBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update headmaster_talk
+            <set>
+                `isDeleted` = '1',
+                `updateUser` = #{item.updateUser,jdbcType=BIGINT},
+                `updateTime` = #{item.updateTime}
+            </set>
+            <where>
+                id = #{item.id,jdbcType=BIGINT}
+            </where>
+        </foreach>
+    </update>
+
+    <insert id="insertTalkBatch">
+        insert into headmaster_talk (`empId`, `talkType`, `talkContent`,`headMaster`,`createUser`,`createTime`,`updateUser`,`updateTime`)
+        values
+        <foreach collection="talks" item="talk" separator=",">
+            (#{talk.empId,jdbcType=VARCHAR},#{talk.talkType,jdbcType=VARCHAR}, #{talk.talkContent,jdbcType=VARCHAR},#{talk.headMaster,jdbcType=VARCHAR},
+            #{talk.createUser,jdbcType=BIGINT},#{talk.createTime},#{talk.updateUser,jdbcType=BIGINT},#{talk.updateTime}
+            )
+        </foreach>
+    </insert>
+
+    <select id="getCreateUser" resultType="Long">
+        select createUser from headmaster_talk where id  = #{id}
+    </select>
+
+    <resultMap id="BaseResultMap" type="com.capgemini.jtp.entity.HeadmasterTalk">
+        <result column="empId" jdbcType="BIGINT" property="empId" />
+        <result column="talkType" jdbcType="VARCHAR" property="talkType" />
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.capgemini.jtp.entity.HeadmasterTalk">
+        <result column="talkContent" jdbcType="LONGVARCHAR" property="talkContent" />
+    </resultMap>
+</mapper>

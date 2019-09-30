@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6f8a33f7-2522-463b-9253-f4d6d171976b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/JTP.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JTPPROjeact.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/.idea/b-server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/JtpSysApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/Swagger2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/common/DateConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/common/HrUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/common/poi/PoiUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/config/AuthenticationAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/config/CustomMetadataSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/config/UrlAccessDecisionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/config/ValidatorConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/config/WebMvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/ConfigController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/CustomController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/PersonnelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/RegLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/emp/EmpBasicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/emp/EmpPrizeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/emp/GrowingExperienceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/emp/HeadmasterTalkController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/emp/MsgNotificationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/emp/PasswordChangeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/emp/ProjectExperienceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/emp/StudyDeclarationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/emp/TeamChangeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/staff/RegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/staff/StaffController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/staff/StaffExperienceDeclarationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/system/SystemBasicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/controller/system/SystemHrController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/EmpMsg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/EmpTransferTeam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/EmployeePrize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/GrowingExperience.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/HeadmasterTalk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/Hr.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/MenuMeta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/PasswordChange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/ProjectExperience.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/RegisterInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/StudyDeclaration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/entity/TeamChangeLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/exception/CustomExceptionResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/EmpMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/EmpMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/EmpMsgMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/EmpMsgMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/EmpPrizeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/EmpPrizeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/GrowingExperienceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/GrowingExperienceMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/HeadmasterTalkMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/HeadmasterTalkMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/HrMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/HrMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/MenuMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/MenuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/MenuRoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/MenuRoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/PasswordVerCodeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/PasswordVerCodeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/ProjectExperienceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/ProjectExperienceMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/RegisterMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/RegisterMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/RoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/RoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/StaffMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/StaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/StudyDeclarationMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/StudyDeclarationMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/TeamChangeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/mapper/TeamChangeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/EmpMsgService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/EmpPrizeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/EmpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/GrowingExperienceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/HeadmasterTalkService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/HrService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/MenuRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/MenuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/PasswordService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/ProjectExperienceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/RegisterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/StaffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/StudyDeclarationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/TeamChangeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/EmpMsgServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/EmpPrizeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/EmpServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/GrowingExperienceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/HeadmasterTalkServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/HrServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/MenuRoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/MenuServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/PasswordServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/ProjectExperienceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/RegisterServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/StaffServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/StudyDeclarationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/service/impl/TeamChangeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/utils/BaseInfoUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/utils/ConvertUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/utils/DateUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/utils/EmailUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/utils/ImportDataValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/CSTValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/CSTValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/DegreeValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/DegreeValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/DepartmentValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/DepartmentValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/GenderValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/GenderValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/GradeValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/GradeValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/PrizeTypeValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/PrizeTypeValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/TeamTypeValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/TeamTypeValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/TerminationTypeValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/validation/TerminationTypeValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/Bean/Employ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/base/BaseSearchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/base/BaseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/base/RespBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/DateSearchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/DeleteBatchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/EmpMsgDeleteVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/EmpMsgEditVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/EmpMsgSearchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/EmpMsgVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/EmpPrizeDeleteVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/EmpPrizeEditVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/EmpPrizeSearchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/EmpTransferTeamVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/EmployeeDeleteVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/EmployeeEditVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/EmployeeSearchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/GrowingExperienceDeleteVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/GrowingExperienceEditVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/GrowingExperienceSearchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/HeadmasterTalkDeleteVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/HeadmasterTalkEditVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/HeadmasterTalkSearchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/HrDeleteVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/HrEditVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/HrSearchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/PasswordChangeVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/ProjectExperienceAddEditVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/ProjectExperienceDeleteVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/ProjectExperienceSearchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/ReadMsgVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/RegisterInfoVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/StudyDeclarationDeleteVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/StudyDeclarationEditVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/StudyDeclarationSearchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/StudyDeclarationVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/TeamChangeLogDeleteVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/TeamChangeLogEditVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/TeamChangeLogSearchVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/request/TeamChangeLogVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/EmpListVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/EmpMsgResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/EmpPrizeResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/EmpPrizeVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/EmpTransferTeamResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/EmployeeResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/EmployeeVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/GrowingExperienceResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/GrowingExperienceVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/HeadmasterTalkResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/HeadmasterTalkVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/HrResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/HrVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/PasswordResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/ProjectExperienceResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/ProjectExperienceVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/RegisterResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/StudyDeclarationResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/java/com/capgemini/jtp/vo/employee/response/TeamChangeResponseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/resources/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/resources/jtp_system.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/main/resources/mybatis-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/backend-server/src/test/java/com/capgemini/jtp/JtpManagementSystemApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/EmpMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/EmpMsgMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/EmpPrizeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/GrowingExperienceMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/HeadmasterTalkMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/HrMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/MenuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/MenuRoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/PasswordVerCodeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/ProjectExperienceMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/RegisterMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/RoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/StaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/StudyDeclarationMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/com/capgemini/jtp/mapper/TeamChangeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/jtp_system.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/b-server/out/production/b-server/mybatis-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/.postcssrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/build/build.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/build/check-versions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/build/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/build/vue-loader.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/build/webpack.base.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/build/webpack.dev.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/build/webpack.prod.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/config/dev.env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/config/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/config/prod.env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/frontend-server.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/components/Home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/components/Login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/components/emp/EmpAdmin.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/components/emp/EmpBasic.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/components/emp/EmpLearning.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/components/emp/EmpManage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/components/emp/EmpMsg.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/components/emp/EmpProject.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/components/emp/EmpStudyDecoration.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/components/emp/EmpTalking.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/components/emp/EmpTeamtsf.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/lib/sockjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/lib/sockjs.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/lib/stomp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/utils/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/utils/filter_utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/src/utils/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-admin/static/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/.postcssrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/build/build.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/build/check-versions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/build/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/build/vue-loader.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/build/webpack.base.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/build/webpack.dev.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/build/webpack.prod.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/config/dev.env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/config/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/config/prod.env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/frontend-server-user.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/assets/css/common.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/assets/imgs/user-header.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/components/Login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/components/pages/Security/ForgetPassword.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/components/pages/aboutDeclaration/certificateDecoration.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/components/pages/aboutDeclaration/declaration.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/components/pages/aboutPersonal/baseInfo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/components/pages/aboutPersonal/register.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/components/pages/head/head.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/components/pages/home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/lib/sockjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/lib/sockjs.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/lib/stomp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/utils/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/utils/filter_utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/src/utils/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/f-cust/static/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/密码.txt" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="F:\briup\repository" />
+        <option name="mavenHome" value="F:/briup/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="F:\briup\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="774" />
+    <option name="y" value="100" />
+    <option name="width" value="656" />
+    <option name="height" value="735" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="JTP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JTP" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f8a33f7-2522-463b-9253-f4d6d171976b" name="Default Changelist" comment="" />
+      <created>1569828717706</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569828717706</updated>
+      <workItem from="1569828720383" duration="412000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="412000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3295082" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="“第一次嗨”" />
+    <option name="LAST_COMMIT_MESSAGE" value="“第一次嗨”" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

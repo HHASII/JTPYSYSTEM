@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.jtp.mapper.EmpPrizeMapper">
+
+    <select id="listPrize" resultType="com.capgemini.jtp.entity.EmployeePrize">
+        select b.id,chineseName,b.empId,prizeType,prizeDetail,b.createUser,b.createTime,b.updateUser,b.updateTime
+        from employee a RIGHT JOIN employee_prize b on a.empId = b.empId and a.isDeleted=0
+        where b.isDeleted = '0'
+        <if test="prizeSearch.search != null  and prizeSearch.search !=''">
+            and (
+                `chineseName` like concat(concat('%',#{prizeSearch.search,jdbcType=VARCHAR}),'%')
+                )
+        </if>
+        <if test="prizeSearch.empId != null">
+            and b.empId = #{prizeSearch.empId,jdbcType=BIGINT}
+        </if>
+    </select>
+
+    <select id="countPrize" resultType="Long">
+        select count(*)
+        from employee a RIGHT JOIN employee_prize b on a.empId = b.empId and a.isDeleted=0
+        where b.isDeleted = '0'
+        <if test="prizeSearch.search != null  and prizeSearch.search !=''">
+            and (`prizeType` like concat(concat('%',#{prizeSearch.search,jdbcType=VARCHAR}),'%') or
+            `prizeDetail` like concat(concat('%',#{prizeSearch.search,jdbcType=VARCHAR}),'%') or
+            `chineseName` like concat(concat('%',#{prizeSearch.search,jdbcType=VARCHAR}),'%')
+            )
+        </if>
+        <if test="prizeSearch.empId != null">
+            and b.empId = #{prizeSearch.empId,jdbcType=BIGINT}
+        </if>
+    </select>
+
+    <select id="getEmpName" resultType="String">
+        select `chineseName` from employee
+        where `isDeleted` = '0' and `empId` = #{empId}
+    </select>
+
+    <insert id="insertPrize" parameterType="com.capgemini.jtp.entity.EmployeePrize">
+        insert into employee_prize (`empId`, `prizeType`,`prizeDetail`, `createUser`, `createTime`, `updateUser`, `updateTime`)
+        values (#{prize.empId,jdbcType=VARCHAR}, #{prize.prizeType,jdbcType=VARCHAR},  #{prize.prizeDetail,jdbcType=VARCHAR},#{prize.createUser,jdbcType=BIGINT}, #{prize.createTime}, #{prize.updateUser,jdbcType=BIGINT}, #{prize.updateTime})
+    </insert>
+
+    <update id="updatePrizeById" parameterType="com.capgemini.jtp.entity.EmployeePrize">
+        update employee_prize
+        <set>
+            <if test="prize.empId != null">
+                `empId` = #{prize.empId,jdbcType=VARCHAR},
+            </if>
+            <if test="prize.prizeType != null">
+                `prizeType` = #{prize.prizeType,jdbcType=VARCHAR},
+            </if>
+            <if test="prize.prizeDetail != null">
+                `prizeDetail` = #{prize.prizeDetail},
+            </if>
+            <if test="prize.updateUser != null">
+                `updateUser` = #{prize.updateUser,jdbcType=BIGINT},
+            </if>
+            <if test="prize.updateTime != null">
+                `updateTime` = #{prize.updateTime},
+            </if>
+        </set>
+        where id = #{prize.id,jdbcType=BIGINT}
+    </update>
+
+    <update id="deletePrizeById" parameterType="com.capgemini.jtp.entity.EmployeePrize">
+        update employee_prize
+        set `isDeleted` = '1', `updateUser` = #{prize.updateUser,jdbcType=BIGINT}, `updateTime` = #{prize.updateTime}
+        where id = #{prize.id,jdbcType=BIGINT}
+    </update>
+
+    <update id="deletePrizeInfoByEmpId" parameterType="com.capgemini.jtp.entity.EmployeePrize">
+        update employee_prize
+        set `isDeleted` = '1', `updateUser` = #{prize.updateUser,jdbcType=BIGINT}, `updateTime` = #{prize.updateTime}
+        where empId = #{prize.empId,jdbcType=BIGINT}
+    </update>
+
+    <select id="getAllPrizes" resultType="com.capgemini.jtp.entity.EmployeePrize">
+        select * from employee_prize
+        where `isDeleted` = '0' order by `id`
+    </select>
+
+    <update id="deletePrizeBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+        update employee_prize
+        <set>
+            `isDeleted` = '1',
+            `updateUser` = #{item.updateUser,jdbcType=BIGINT},
+            `updateTime` = #{item.updateTime}
+        </set>
+        <where>
+            id = #{item.id,jdbcType=BIGINT}
+        </where>
+        </foreach>
+    </update>
+
+    <insert id="insertPrizeBatch">
+        insert into employee_prize (`empId`, `prizeType`,`prizeDetail`,`createUser`,`createTime`,`updateUser`,`updateTime`)
+        values
+        <foreach collection="prizes" item="prize" separator=",">
+            (
+             #{prize.empId,jdbcType=VARCHAR}, #{prize.prizeType,jdbcType=VARCHAR}, #{prize.prizeDetail,jdbcType=VARCHAR},
+           #{prize.createUser,jdbcType=BIGINT},#{prize.createTime},#{prize.updateUser,jdbcType=BIGINT},#{prize.updateTime}
+            )
+        </foreach>
+    </insert>
+
+    <select id="getCreateUser" resultType="Long">
+        select createUser from employee_prize where id  = #{id}
+    </select>
+
+</mapper>

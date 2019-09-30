@@ -1,0 +1,72 @@
+<template>
+  <div>
+    <el-header class="elHeader">
+      <span class="home_title">JTP MANGEMENT SYSTEM</span>
+      <span>
+        <el-dropdown>
+          <i class="el-icon-setting" style="margin-right: 15px; color: #fff"></i>
+          <span class="user colorWhite">{{userName}}</span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item @click.native="userInfo()">个人资料</el-dropdown-item>
+            <el-dropdown-item @click.native="lagout()">退出系统</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </span>
+    </el-header>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "myhead",
+  data() {
+    return {
+      userName: localStorage.getItem('name')
+    };
+  },
+  created() {},
+  mounted() {},
+  methods: {
+    // 所有的方法封装
+    userInfo() {
+      this.$router.push({
+        path: '/home/baseInfo'
+      })
+    },
+    lagout() {
+      this.$router.push({
+        path: '../login'
+      })
+    }
+  }
+};
+</script>
+
+<style scoped>
+.el-header,
+.el-footer {
+  background-color: #b3c0d1;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
+.elHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #20a0ff;
+}
+.user {
+  font-size: 16px;
+  font-weight: bolder;
+}
+.home_title {
+  color: #fff;
+  font-size: 22px;
+  display: inline;
+  margin-left: 8px;
+}
+.colorWhite{
+  color: #fff
+}
+</style>

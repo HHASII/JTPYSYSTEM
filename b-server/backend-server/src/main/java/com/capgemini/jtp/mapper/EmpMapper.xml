@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.jtp.mapper.EmpMapper">
+
+    <resultMap id="BaseResultMap" type="com.capgemini.jtp.entity.Employee">
+        <result column="empId" jdbcType="BIGINT" property="empId" />
+        <result column="chineseName" jdbcType="VARCHAR" property="chineseName" />
+        <result column="gender" jdbcType="VARCHAR" property="gender" />
+        <result column="grade" jdbcType="VARCHAR" property="grade" />
+        <result column="hireDate" jdbcType="DATE" property="hireDate" />
+        <result column="department" jdbcType="VARCHAR" property="department" />
+        <result column="legalEntity" jdbcType="VARCHAR" property="legalEntity" />
+        <result column="workingLocation" jdbcType="VARCHAR" property="workingLocation" />
+        <result column="teachingStartDate" jdbcType="DATE" property="teachingStartDate" />
+        <result column="phone" jdbcType="VARCHAR" property="phone" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+        <result column="school" jdbcType="VARCHAR" property="school" />
+        <result column="major" jdbcType="VARCHAR" property="major" />
+        <result column="degree" jdbcType="VARCHAR" property="degree" />
+        <result column="graduationYear" jdbcType="VARCHAR" property="graduationYear" />
+        <result column="cst" jdbcType="VARCHAR" property="cst" />
+        <result column="subCst" jdbcType="VARCHAR" property="subCst" />
+        <result column="skillGroup" jdbcType="VARCHAR" property="skillGroup" />
+        <result column="skillSets" jdbcType="VARCHAR" property="skillSets" />
+        <result column="leaveDate" jdbcType="DATE" property="leaveDate" />
+        <result column="terminationType" jdbcType="VARCHAR" property="terminationType" />
+        <result column="terminationReason" jdbcType="VARCHAR" property="terminationReason" />
+        <result column="exitComments" jdbcType="VARCHAR" property="exitComments" />
+        <result column="leavingAccount" jdbcType="VARCHAR" property="leavingAccount" />
+        <result column="formerId" jdbcType="VARCHAR" property="formerId" />
+        <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    </resultMap>
+    <!--新的实体类的BaseResultMap-->
+
+    <select id="listEmp" resultType="com.capgemini.jtp.entity.Employee">
+        select * from employee
+        where `isDeleted` = '0'
+        <if test="empSearch.chineseName != null and empSearch.chineseName !=''">
+            and `chineseName` like concat(concat('%',#{empSearch.chineseName,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.gender != null and empSearch.gender !=''" >
+            and `gender` = #{empSearch.gender,jdbcType=VARCHAR}
+        </if>
+        <if test="empSearch.cst != null and empSearch.cst !=''">
+            and `cst` like concat(concat('%',#{empSearch.cst,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.subCst != null and empSearch.subCst !=''">
+            and `subCst` like concat(concat('%',#{empSearch.subCst,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.department != null and empSearch.department !=''">
+            and `department` like concat(concat('%',#{empSearch.department,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.workingLocation != null and empSearch.workingLocation !=''">
+            and `workingLocation` like concat(concat('%',#{empSearch.workingLocation,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.degree != null and empSearch.degree !=''">
+            and `degree` like concat(concat('%',#{empSearch.degree,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.terminationType != null and empSearch.terminationType !=''">
+            and `terminationType` like concat(concat('%',#{empSearch.terminationType,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.hireBeginDate != null and empSearch.hireEndDate != null">
+            and `hireDate` between #{empSearch.hireBeginDate} and #{empSearch.hireEndDate}
+        </if>
+        <if test="empSearch.leaveBeginDate != null and empSearch.leaveEndDate != null">
+            and `leaveDate` between #{empSearch.leaveBeginDate} and #{empSearch.leaveEndDate}
+        </if>
+        <if test="empSearch.birthdayBeginDate != null and empSearch.birthdayEndDate != null">
+            and `birthday` between #{empSearch.birthdayBeginDate} and #{empSearch.birthdayEndDate}
+        </if>
+        <if test="empSearch.start != null and empSearch.size != null">
+            order by `id` limit #{empSearch.start},#{empSearch.size}
+        </if>
+    </select>
+
+    <select id="listEmpVo" resultType="com.capgemini.jtp.entity.Employee">
+        select * from employee
+        where `isDeleted` = '0'
+    </select>
+
+    <select id="countEmp" resultType="Long">
+        select count(*) from employee
+        where `isDeleted` = '0'
+        <if test="empSearch.chineseName != null and empSearch.chineseName !=''">
+            and `chineseName` like concat(concat('%',#{empSearch.chineseName,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.gender != null and empSearch.gender !=''" >
+            and `gender` = #{empSearch.gender,jdbcType=VARCHAR}
+        </if>
+        <if test="empSearch.cst != null and empSearch.cst !=''">
+            and `cst` like concat(concat('%',#{empSearch.cst,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.subCst != null and empSearch.subCst !=''">
+            and `subCst` like concat(concat('%',#{empSearch.subCst,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.department != null and empSearch.department !=''">
+            and `department` like concat(concat('%',#{empSearch.department,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.workingLocation != null and empSearch.workingLocation !=''">
+            and `workingLocation` like concat(concat('%',#{empSearch.workingLocation,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.degree != null and empSearch.degree !=''">
+            and `degree` like concat(concat('%',#{empSearch.degree,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.terminationType != null and empSearch.terminationType !=''">
+            and `terminationType` like concat(concat('%',#{empSearch.terminationType,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="empSearch.hireBeginDate != null and empSearch.hireEndDate != null">
+            and `hireDate` between #{empSearch.hireBeginDate} and #{empSearch.hireEndDate}
+        </if>
+        <if test="empSearch.leaveBeginDate != null and empSearch.leaveEndDate != null">
+            and `leaveDate` between #{empSearch.leaveBeginDate} and #{empSearch.leaveEndDate}
+        </if>
+        <if test="empSearch.birthdayBeginDate != null and empSearch.birthdayEndDate != null">
+            and `birthday` between #{empSearch.birthdayBeginDate} and #{empSearch.birthdayEndDate}
+        </if>
+    </select>
+
+    <select id="getAllEmployees" resultType="com.capgemini.jtp.entity.Employee">
+        select * from employee
+        where `isDeleted` = '0' order by `id`
+    </select>
+
+    <insert id="insertEmp" parameterType="com.capgemini.jtp.entity.Employee">
+        insert into employee (`empId`,`chineseName`, `gender`, `grade`, `hireDate`, `department`, `legalEntity`,`workingLocation`,
+                              `teachingStartDate`, `phone`, `email`, `school`, `major`, `degree`, `graduationYear`, `cst`,`subCst`,`skillGroup`,`skillSets`,
+                              `leaveDate`, `terminationType`,`terminationReason`,`exitComments`,`leavingAccount`,`formerId`,`birthday`,`createUser`,`createTime`,
+                              `updateUser`,`updateTime`)
+        values (#{emp.empId,jdbcType=BIGINT},#{emp.chineseName,jdbcType=VARCHAR}, #{emp.gender,jdbcType=VARCHAR},#{emp.grade,jdbcType=VARCHAR},
+                #{emp.hireDate}, #{emp.department,jdbcType=VARCHAR},#{emp.legalEntity,jdbcType=VARCHAR},
+                #{emp.workingLocation,jdbcType=VARCHAR},#{emp.teachingStartDate},#{emp.phone,jdbcType=VARCHAR},#{emp.email,jdbcType=VARCHAR},
+                #{emp.school,jdbcType=VARCHAR}, #{emp.major,jdbcType=VARCHAR}, #{emp.degree,jdbcType=VARCHAR},#{emp.graduationYear},
+                #{emp.cst,jdbcType=VARCHAR}, #{emp.subCst,jdbcType=VARCHAR}, #{emp.skillGroup,jdbcType=VARCHAR},#{emp.skillSets,jdbcType=VARCHAR},
+                #{emp.leaveDate},#{emp.terminationType,jdbcType=VARCHAR},#{emp.terminationReason,jdbcType=VARCHAR},#{emp.exitComments,jdbcType=VARCHAR},
+                #{emp.leavingAccount,jdbcType=VARCHAR},#{emp.formerId,jdbcType=VARCHAR},#{emp.birthday},
+                #{emp.createUser,jdbcType=BIGINT}, #{emp.createTime}, #{emp.updateUser,jdbcType=BIGINT}, #{emp.updateTime})
+    </insert>
+
+    <update id="updateEmpById" parameterType="com.capgemini.jtp.entity.Employee">
+        update employee
+        <set>
+            <if test="emp.empId != null and emp.empId !=''">
+                `empId` = #{emp.empId,jdbcType=BIGINT},
+            </if>
+            <if test="emp.chineseName != null and emp.chineseName !=''">
+                `chineseName` = #{emp.chineseName,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.gender != null and emp.gender !=''">
+                `gender` = #{emp.gender,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.grade != null and emp.grade !=''">
+                `grade` = #{emp.grade,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.hireDate != null">
+                `hireDate` = #{emp.hireDate},
+            </if>
+            <if test="emp.department != null and emp.department !=''">
+                `department` = #{emp.department,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.legalEntity != null and emp.legalEntity !=''">
+                `legalEntity` = #{emp.legalEntity,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.workingLocation != null and emp.workingLocation !=''">
+                `workingLocation` = #{emp.workingLocation,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.teachingStartDate != null">
+                `teachingStartDate` = #{emp.teachingStartDate},
+            </if>
+            <if test="emp.phone != null and emp.phone !=''">
+                `phone` = #{emp.phone,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.email != null and emp.email !=''">
+                `email` = #{emp.email,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.school != null and emp.school !=''">
+                `school` = #{emp.school,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.major != null and emp.major !=''">
+                `major` = #{emp.major,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.degree != null and emp.degree !=''">
+                `degree` = #{emp.degree,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.graduationYear != null and emp.graduationYear !=''">
+                `graduationYear` = #{emp.graduationYear,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.cst != null and emp.cst !=''">
+                `cst` = #{emp.cst,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.subCst != null and emp.subCst !=''">
+                `subCst` = #{emp.subCst,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.skillGroup != null and emp.skillGroup !=''">
+                `skillGroup` = #{emp.skillGroup,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.skillSets != null and emp.skillSets !=''">
+                `skillSets` = #{emp.skillSets,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.leaveDate != null">
+                `leaveDate` = #{emp.leaveDate},
+            </if>
+            <if test="emp.terminationType != null and emp.terminationType !=''">
+                `terminationType` = #{emp.terminationType,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.terminationReason != null and emp.terminationReason !=''">
+                `terminationReason` = #{emp.terminationReason,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.exitComments != null and emp.exitComments !=''">
+                `exitComments` = #{emp.exitComments,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.leavingAccount != null and emp.leavingAccount !=''">
+                `leavingAccount` = #{emp.leavingAccount,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.formerId != null and emp.formerId !=''">
+                `formerId` = #{emp.formerId,jdbcType=VARCHAR},
+            </if>
+            <if test="emp.birthday != null">
+                `birthday` = #{emp.birthday},
+            </if>
+            <if test="emp.updateUser != null and emp.updateUser !=''">
+                `updateUser` = #{emp.updateUser,jdbcType=BIGINT},
+            </if>
+            <if test="emp.updateTime != null">
+                `updateTime` = #{emp.updateTime},
+            </if>
+        </set>
+        where id = #{emp.id,jdbcType=BIGINT}
+    </update>
+
+    <update id="deleteEmpById" parameterType="com.capgemini.jtp.entity.Employee">
+        update employee
+        set `isDeleted` = '1', `updateUser` = #{emp.updateUser,jdbcType=BIGINT}, `updateTime` = #{emp.updateTime}
+        where id = #{emp.id,jdbcType=BIGINT}
+    </update>
+
+
+
+    <select id="getMaxEmpID" resultType="Long">
+        SELECT EmpID from employee where id=(select max(id) from employee)
+    </select>
+
+
+
+    <insert id="insertEmpBatch">
+        insert into employee (`empId`,`chineseName`, `gender`, `grade`, `hireDate`, `department`, `legalEntity`,`workingLocation`,
+        `teachingStartDate`, `phone`, `email`, `school`, `major`, `degree`, `graduationYear`, `cst`,`subCst`,`skillGroup`,`skillSets`,
+        `leaveDate`, `terminationType`,`terminationReason`,`exitComments`,`leavingAccount`,`formerId`,`birthday`,`createUser`,`createTime`,`updateUser`,`updateTime`)
+        values
+        <foreach collection="emps" item="emp" separator=",">
+           (#{emp.empId,jdbcType=BIGINT},#{emp.chineseName,jdbcType=VARCHAR}, #{emp.gender,jdbcType=VARCHAR},#{emp.grade,jdbcType=VARCHAR},
+            #{emp.hireDate}, #{emp.department,jdbcType=VARCHAR},#{emp.legalEntity,jdbcType=VARCHAR},
+            #{emp.workingLocation,jdbcType=VARCHAR},#{emp.teachingStartDate},#{emp.phone,jdbcType=VARCHAR},#{emp.email,jdbcType=VARCHAR},
+            #{emp.school,jdbcType=VARCHAR}, #{emp.major,jdbcType=VARCHAR}, #{emp.degree,jdbcType=VARCHAR},#{emp.graduationYear,jdbcType=VARCHAR},
+            #{emp.cst,jdbcType=VARCHAR}, #{emp.subCst,jdbcType=VARCHAR}, #{emp.skillGroup,jdbcType=VARCHAR},#{emp.skillSets,jdbcType=VARCHAR},
+            #{emp.leaveDate},#{emp.terminationType,jdbcType=VARCHAR},#{emp.terminationReason,jdbcType=VARCHAR},#{emp.exitComments,jdbcType=VARCHAR},
+            #{emp.leavingAccount,jdbcType=VARCHAR},#{emp.formerId,jdbcType=VARCHAR},#{emp.birthday},
+            #{emp.createUser,jdbcType=BIGINT},#{emp.createTime},#{emp.updateUser,jdbcType=BIGINT},#{emp.updateTime}
+            )
+        </foreach>
+    </insert>
+
+
+
+    <select id="getCreateUser" resultType="Long">
+        select createUser from employee where id = #{id} and isDeleted = 0
+    </select>
+
+    <select id="getEmpId" resultType="Long">
+        select empId from employee where id = #{id} and isDeleted = 0
+    </select>
+
+    <select id="checkEmpIdExist" resultType="Long">
+        select count(*) from employee where empId = #{empId} and isDeleted = 0
+    </select>
+
+    <select id="getEmpByEmpId" resultMap="BaseResultMap">
+        select * from employee where empId = #{empId}
+    </select>
+</mapper>

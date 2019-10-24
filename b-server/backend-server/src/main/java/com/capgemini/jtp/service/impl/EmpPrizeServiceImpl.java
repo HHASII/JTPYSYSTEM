@@ -25,12 +25,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Jason Jin
- * @create: 2019-06-07 22:58
- **/
+
 @Service
 @Slf4j
 public class EmpPrizeServiceImpl implements EmpPrizeService {
@@ -41,12 +36,7 @@ public class EmpPrizeServiceImpl implements EmpPrizeService {
     @Autowired
     HrService hrService;
 
-    /**
-     * @Description: 查询获奖信息
-     * @Classname : EmpPrizeService
-     * @author: Jason Jin
-     * @date: 2019/6/7 11:19 PM
-     */
+
     @Override
     public EmpPrizeResponseVo listPrize(EmpPrizeSearchVo empPrizeSearchVo) {
         //获取所有系统用户信息的Map
@@ -74,12 +64,7 @@ public class EmpPrizeServiceImpl implements EmpPrizeService {
         return empPrizeResponseVo;
     }
 
-    /**
-     * @Description: 根据数据库主键ID修改获奖信息
-     * @Classname : EmpPrizeService
-     * @author: Jason Jin
-     * @date: 2019/6/8 10:18 AM
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer updatePrizeById(EmpPrizeEditVo empPrizeEditVo) {
@@ -94,12 +79,7 @@ public class EmpPrizeServiceImpl implements EmpPrizeService {
 
     }
 
-    /**
-     * @Description: 新增单条得奖信息
-     * @Classname : EmpPrizeService
-     * @author: Jason Jin
-     * @date: 2019/6/8 10:29 AM
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer addPrize(EmpPrizeEditVo empPrizeEditVo) {
@@ -111,12 +91,7 @@ public class EmpPrizeServiceImpl implements EmpPrizeService {
         return empPrizeMapper.insertPrize(employeePrize);
     }
 
-    /**
-     * @Description: 根据数据库主键ID删除获奖信息
-     * @Classname : EmpPrizeService
-     * @author: Jason Jin
-     * @date: 2019/6/8 10:13 AM
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer deletePrizeById(EmpPrizeDeleteVo empPrizeDeleteVo) {
@@ -131,15 +106,7 @@ public class EmpPrizeServiceImpl implements EmpPrizeService {
         return empPrizeMapper.deletePrizeById(employeePrize);
     }
 
-    /**
-     * @Title: deletePrizeInfoByEmpId
-     * @Description: 根据员工表主键ID删除员工获奖信息表中对应记录
-     * @Param: [empId]
-     * @Return: void
-     * @Throws:
-     * @Author: Huabin
-     * @Date: 2019/6/24 12:49 PM
-     */
+
     @Override
     public Integer deletePrizeInfoByEmpId(Employee employee) {
 
@@ -166,11 +133,7 @@ public class EmpPrizeServiceImpl implements EmpPrizeService {
 
         return PoiUtils.exportPrize2Excel(empPrizeVoList);
     }
-    /**
-    *  @author: 陈宇雄
-    *  @date: 2019/07/28
-    *  @description ：批量删除Prize
-     */
+
     @Override
     public Integer deletePrizeBatch(DeleteBatchVo deleteBatchVo, Long operationUserId){
         String[] list = deleteBatchVo.getDeleteList().split(",");
@@ -188,15 +151,7 @@ public class EmpPrizeServiceImpl implements EmpPrizeService {
         return empPrizeMapper.deletePrizeBatch(employeePrizes);
     }
 
-    /**
-     * @Title: importPrizesFromExcel
-     * @Description: 导入Excel中的获奖信息
-     * @Param: [List<Employee>]
-     * @Return: java.lang.Integer
-     * @Throws:
-     * @Author: Huabin
-     * @Date: 7/29/2019 5:31 PM
-     */
+
     @Override
     public Integer importPrizesFromExcel(List<EmployeePrize> employeePrizeList) {
         return empPrizeMapper.insertPrizeBatch(employeePrizeList);

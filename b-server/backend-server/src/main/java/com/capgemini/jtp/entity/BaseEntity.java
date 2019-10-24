@@ -6,12 +6,9 @@ import lombok.Setter;
 
 import java.util.Date;
 
-/**
- * @ClassName: BaseEntity
- * @Description: 基础实体类
- * @Author: Brady
- * @Date: 5/30/2019 1:10 PM
- */
+
+
+
 @Data
 public class BaseEntity {
 

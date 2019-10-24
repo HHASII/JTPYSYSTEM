@@ -34,7 +34,6 @@ public class StudyDeclarationServiceImpl implements StudyDeclarationService {
     public StudyDeclarationResponseVo listStudyDeclaration(StudyDeclarationSearchVo studyDeclarationSearchVo){
       //  StudyDeclarationResponseVo studyDeclarationResponseVo = new StudyDeclarationResponseVo();
         Map<Long, Hr> hrMap = hrService.getAllHrMap();
-
         StudyDeclarationResponseVo studyDeclarationResponseVo = new StudyDeclarationResponseVo();
 
         List<StudyDeclaration> studyDeclarationList = studyDeclarationMapper.listStudyDeclaration(studyDeclarationSearchVo);
@@ -67,7 +66,7 @@ public class StudyDeclarationServiceImpl implements StudyDeclarationService {
         //根据ID获取创建时间
         Date studyDeclarationCreateDates = studyDeclarationMapper.getLastStudyDeclarationCreateDates(studyDeclarationEditVo);
         //添加消息
-        if(studyDeclarationMapper.getRid(studyDeclarationEditVo.getOperationUserId())==3){
+        if(studyDeclarationMapper.getRid(studyDeclarationEditVo.getOperationUserId())==1){
             String createUserName = studyDeclarationMapper.getStudyDeclarationName(studyDeclarationEditVo.getEmpId());
             String msg = createUserName+"修改了本月学习申报";
             empMsgService.addEmpMsg(msg);
@@ -96,7 +95,7 @@ public class StudyDeclarationServiceImpl implements StudyDeclarationService {
             }
         }
         //添加消息
-        if(studyDeclarationMapper.getRid(studyDeclarationEditVo.getOperationUserId())==3){
+        if(studyDeclarationMapper.getRid(studyDeclarationEditVo.getOperationUserId())==1){
             String createUserName = studyDeclarationMapper.getStudyDeclarationName(studyDeclarationEditVo.getEmpId());
             String msg = createUserName+" 提交了本月学习申报";
             empMsgService.addEmpMsg(msg);

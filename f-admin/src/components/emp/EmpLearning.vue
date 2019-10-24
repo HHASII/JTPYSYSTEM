@@ -102,9 +102,7 @@
             </el-table-column>
           </el-table>
           <div style="display: flex;justify-content: space-between;margin: 2px">
-            <!-- <el-button type="danger" size="mini" v-if="emps.length>0" :disabled="multipleSelection.length==0"
-                       @click="deleteManyEmps">批量删除
-            </el-button>-->
+
             <el-pagination
               background
               :page-size="10"

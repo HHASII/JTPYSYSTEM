@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     AuthenticationAccessDeniedHandler deniedHandler;
 
-    @Override//配置在内存中进行注册公开内存的身份验证
+    @Override//
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(hrService)
                 .passwordEncoder(new BCryptPasswordEncoder());
@@ -60,6 +60,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override//定义需要拦截的URL
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                //进行路径访问的时候，先进行一波判断
+
                 .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
                     @Override
                     public <O extends FilterSecurityInterceptor> O postProcess(O o) {
@@ -71,6 +73,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().cors()
                 .and()
 //                .anyRequest().authenticated()
+//                loginPage("/login_p")前端登录失败，或者直接路径跳转，访问的的接口。
+//                loginProcessingUrl("/login")前端正常的请求接口。
                 .formLogin().loginPage("/login_p").loginProcessingUrl("/login")
                 .usernameParameter("username").passwordParameter("password")
                 .failureHandler(new AuthenticationFailureHandler() {

@@ -1,6 +1,6 @@
 package com.capgemini.jtp.controller.staff;
 
-import com.capgemini.jtp.entity.Employee;
+import com.capgemini.jtp.vo.employee.response.EmpWithUserfaceVo;
 import com.capgemini.jtp.service.StaffService;
 import com.capgemini.jtp.vo.base.RespBean;
 import io.swagger.annotations.Api;
@@ -22,9 +22,9 @@ public class StaffController {
     @ApiOperation(value = "根据员工id获取员工详细信息")
     @GetMapping("/getEmpBy/{empId}")
     public RespBean getEmpByEmpId(@PathVariable("empId") Integer empId) {
-        Employee employee =  staffService.getEmpByEmpId(empId);
-        if (employee != null) {
-            return RespBean.ok(employee);
+        EmpWithUserfaceVo empWithUserfaceVo =  staffService.resourceByEmpId(empId);
+        if (empWithUserfaceVo != null) {
+            return RespBean.ok(empWithUserfaceVo);
         } else {
             return RespBean.error("员工id有误！");
         }

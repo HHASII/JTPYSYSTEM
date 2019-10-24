@@ -23,12 +23,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @ClassName：ProjectExperienceServiceImpl
- * @Description：
- * @Author: 陈宇雄
- * @Date：Created in 2019/07/21 17:13
- */
+
 @Service
 @Slf4j
 public class ProjectExperienceServiceImpl implements ProjectExperienceService {
@@ -39,12 +34,7 @@ public class ProjectExperienceServiceImpl implements ProjectExperienceService {
     @Autowired
     HrService hrService;
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/30
-     * @description: 搜索、列表项目经历
-     * @classname: ProjectExperienceServiceImpl
-     */
+
     @Override
     public ProjectExperienceResponseVo listProjectExperience(ProjectExperienceSearchVo projectExperienceSearchVo){
         Map<Long, Hr> hrMap = hrService.getAllHrMap();
@@ -72,12 +62,7 @@ public class ProjectExperienceServiceImpl implements ProjectExperienceService {
         return projectExperienceResponseVo;
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/30
-     * @description: 新增项目
-     * @classname: ProjectExperienceServiceImpl
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer addProject(ProjectExperienceAddEditVo projectExperienceAddEditVo) {
@@ -89,12 +74,7 @@ public class ProjectExperienceServiceImpl implements ProjectExperienceService {
         return projectExperienceMapper.insertProject(projectExperience);
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/30
-     * @description: 根据ID升级项目
-     * @classname: ProjectExperienceServiceImpl
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer updateProjectById(ProjectExperienceAddEditVo ProjectExperienceAddEditVo) {
@@ -108,12 +88,7 @@ public class ProjectExperienceServiceImpl implements ProjectExperienceService {
         return projectExperienceMapper.updateProjectById(projectExperience);
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/30
-     * @description: 根据ID删除项目
-     * @classname: ProjectExperienceServiceImpl
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer deleteProjectById(ProjectExperienceDeleteVo projectExperienceDeleteVo) {
@@ -128,12 +103,7 @@ public class ProjectExperienceServiceImpl implements ProjectExperienceService {
         return projectExperienceMapper.deleteProjectById(projectExperience);
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/30
-     * @description: 根据empId删除数据，级联删除
-     * @classname: ProjectExperienceServiceImpl
-     */
+
     @Override
     public Integer deleteProjectInfoByEmpId(Employee employee) {
         ProjectExperience projectExperience = new ProjectExperience();
@@ -143,12 +113,6 @@ public class ProjectExperienceServiceImpl implements ProjectExperienceService {
         return projectExperienceMapper.deleteProjectInfoByEmpId(projectExperience);
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/30
-     * @description: 导出所有项目到excel
-     * @classname: ProjectExperienceServiceImpl
-     */
     @Override
     public ResponseEntity<byte[]> exportAllPros() {
         List<ProjectExperienceVo> projectExperienceVoList = null;
@@ -166,12 +130,6 @@ public class ProjectExperienceServiceImpl implements ProjectExperienceService {
         return PoiUtils.exportPro2Excel(projectExperienceVoList);
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/28
-     * @description: 批量删除ProjectExperience
-     * @classname: ProjectExperienceServiceImpl
-     */
     @Override
     public Integer deleteProBatch(DeleteBatchVo deleteBatchVo,
                                   Long operationUserId){
@@ -188,15 +146,7 @@ public class ProjectExperienceServiceImpl implements ProjectExperienceService {
         return projectExperienceMapper.deleteProBatch(projectExperiences);
     }
 
-    /**
-     * @Title: importProsFromExcel
-     * @Description: 导入Excel中的项目经历信息
-     * @Param: [List<Employee>]
-     * @Return: java.lang.Integer
-     * @Throws:
-     * @Author: Huabin
-     * @Date: 7/29/2019 5:31 PM
-     */
+
     @Override
     public Integer importProsFromExcel(List<ProjectExperience> projectExperienceList) {
         return projectExperienceMapper.insertProBatch(projectExperienceList);

@@ -13,6 +13,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
 import java.util.Date;
+/**
+ * @ Description   :  
+ * @ Author        :  HASI
+ * @ CreateDate    :  2019/10/15 0015 1:34
+ * @ UpdateUser    :  HASI
+ * @ UpdateDate    :  2019/10/15 0015 1:34
+ * @ UpdateRemark  :  修改内容
+ * @ Version       :  1.0
+ */
 
 @Service
 public class PasswordServiceImpl implements PasswordService {
@@ -20,29 +29,27 @@ public class PasswordServiceImpl implements PasswordService {
     @Autowired
     PasswordVerCodeMapper passwordVerCodeMapper;
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 发送验证码并把验证码保存在数据库中
-     * @Date 12:49 2019/8/25
-     * @Param
-     * @return
-     */
+
     @Override
     public PasswordResponseVo sendVerfiCode(PasswordChangeVo passwordChangeVo){
-
+        
         //根据账号找到用户邮箱
         String useremail = passwordVerCodeMapper.getUseremail(passwordChangeVo);
         //生成随机6位数
         int verCode = ((int)((Math.random()*9+1)*100000));
         //发送邮件到邮箱
-        String VerfiMsg =  "亲爱的JTP一员，您好！\r\n"
+        String VerfiMsg =  "亲爱的管理员，您好！\r\n"
                 + "\r\n"
-                + "您正在使用邮箱找回密码，本次请求的验证码为："
-                + "\r\n"+verCode+"(如非本人操作请忽略本条邮件)"
-                + "\r\n"
+                + "您正在使用邮箱找回密码，"
                 + "\r\n"
                 + "\r\n"
-                + "JTP运营团队\r\n"
+                +"本次请求的验证码为："
+                + "\r\n"+verCode
+                + "\r\n"
+                +"(如非本人操作请注意邮箱安全)"
+                + "\r\n"
+                + "\r\n"
+                + "HASI运营团队\r\n"
                 + ""+new Date();
         EmailUtil.SendEmail(useremail,VerfiMsg);
         PasswordChange passwordChange = new PasswordChange();
@@ -68,11 +75,12 @@ public class PasswordServiceImpl implements PasswordService {
         //验证时间是否超时
         Calendar dateOne=Calendar.getInstance();
         Calendar dateTwo=Calendar.getInstance();
-        dateOne.setTime(new Date());
+        Date date =new Date();
+        dateOne.setTime(date);
         dateTwo.setTime(passwordVerCodeMapper.getVeriCodenCreateTime(passwordChangeVo));
         long timeOne=dateOne.getTimeInMillis();
         long timeTwo=dateTwo.getTimeInMillis();
-        long minute=(timeOne-timeTwo)/(1000*60);//转化minute
+        long minute=(timeOne-timeTwo)/(1000*30);//转化minute
         if (minute>30){
             return -2;
         }

@@ -4,12 +4,7 @@ import com.capgemini.jtp.vo.base.BaseVo;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Huabin
- * @create: 2019-07-21 16:04
- **/
+
 
 @Getter
 @Setter

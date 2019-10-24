@@ -42,8 +42,6 @@ export const formatRoutes = (routes)=> {
     }
     let fmRouter = {
       path: path,
-      //这里是为了让大家更好的拓展侧边栏的功能，如不需要请忽略
-      //author: lmh <minhao.liu@capgemini.com>
       component(resolve){
         if (component.startsWith('home')) {
           require(['../components/pages/' + component + '.vue'], resolve)

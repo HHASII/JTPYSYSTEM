@@ -35,11 +35,10 @@ public class EmpMsgServiceImpl implements EmpMsgService {
         EmpMsgResponseVo empMsgResponseVo = new EmpMsgResponseVo();
 
         List<EmpMsg> empMsgList = empMsgMapper.listEmpMsg(empMsgSearchVo);
-        //System.out.println(empMsgList+"李齐宣");
         List<EmpMsgVo> empMsgVoList = new ArrayList<>();
 
         for (EmpMsg empMsg : empMsgList) {
-            EmpMsgVo empMsgVo = ConvertUtils.convertTeamChangeLogEntityToVo(empMsg);
+            EmpMsgVo empMsgVo = ConvertUtils.convertEmpMsgEntityToVo(empMsg);
             empMsgVoList.add(empMsgVo);
         }
         empMsgResponseVo.setListCount(empMsgMapper.countEmpMsg(empMsgSearchVo));
@@ -61,7 +60,6 @@ public class EmpMsgServiceImpl implements EmpMsgService {
         EmpMsg empMsg = new EmpMsg();
         empMsg.setEmpMsg(msg);
         empMsg.setCreateTime(new Date());
-       // System.out.println(empMsg.getCreateTime()+"李齐宣");
         //信息插入信息表
         Integer msgId = empMsgMapper.insertEmpMsg(empMsg);
         return msgId;

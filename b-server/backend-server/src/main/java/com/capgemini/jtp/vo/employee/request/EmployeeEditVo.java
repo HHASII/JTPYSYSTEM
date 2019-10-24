@@ -8,12 +8,7 @@ import lombok.Data;
 import javax.validation.constraints.*;
 import java.util.Date;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Jason Jin
- * @create: 2019-06-02 13:44
- **/
+
 @Data
 public class EmployeeEditVo {
 

@@ -1,7 +1,6 @@
 package com.capgemini.jtp.service.impl;
 
-import com.capgemini.jtp.entity.Employee;
-import com.capgemini.jtp.mapper.EmpMapper;
+import com.capgemini.jtp.vo.employee.response.EmpWithUserfaceVo;
 import com.capgemini.jtp.mapper.StaffMapper;
 import com.capgemini.jtp.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +10,11 @@ import org.springframework.stereotype.Service;
 public class StaffServiceImpl implements StaffService {
 
     @Autowired
-    private EmpMapper empMapper;
-
+        StaffMapper staffMapper;
     @Override
-    public Employee getEmpByEmpId(Integer empId) {
-        Employee employee = empMapper.getEmpByEmpId(empId);
-        return employee;
+    public EmpWithUserfaceVo resourceByEmpId(Integer empId) {
+
+        return   staffMapper.resourceByEmpId(empId);
+
     }
 }

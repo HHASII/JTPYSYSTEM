@@ -6,12 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * @Description: TODO
- * @Classname : MenuRoleService
- * @author: Jason Jin
- * @date: 2019/5/19 11:44 PM
- */
+
 @Service
 @Transactional
 public class MenuRoleServiceImpl implements MenuRoleService {

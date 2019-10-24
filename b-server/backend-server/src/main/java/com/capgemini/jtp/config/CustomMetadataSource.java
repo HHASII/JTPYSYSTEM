@@ -14,19 +14,19 @@ import org.springframework.util.AntPathMatcher;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * @Description: TODO
- * @Classname : CustomMetadataSource
- * @author: Jason Jin
- * @date: 2019/5/19 11:47 PM
- */
+
+//每次访问都要调用，进行访问拦截，根据你的路径来查询角色
+
 @Component
 public class CustomMetadataSource implements FilterInvocationSecurityMetadataSource {
 
     @Autowired
     MenuService menuService;
+//路径匹配符
 
     AntPathMatcher antPathMatcher = new AntPathMatcher();
+
+    //这个方法就是为了获取角色
 
     @Override
     public Collection<ConfigAttribute> getAttributes(Object o) {
@@ -36,6 +36,8 @@ public class CustomMetadataSource implements FilterInvocationSecurityMetadataSou
         }
         List<Menu> allMenu = menuService.getAllMenu();
         for (Menu menu : allMenu) {
+            //遍历所有的menu，进行匹配请求路径和数据库路径匹配
+
             if (antPathMatcher.match(menu.getUrl(), requestUrl)
                     &&menu.getRoles().size()>0) {
                 List<Role> roles = menu.getRoles();
@@ -44,6 +46,8 @@ public class CustomMetadataSource implements FilterInvocationSecurityMetadataSou
                 for (int i = 0; i < size; i++) {
                     values[i] = roles.get(i).getName();
                 }
+                //匹配资源后，传入角色
+
                 return SecurityConfig.createList(values);
             }
         }

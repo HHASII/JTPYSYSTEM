@@ -10,12 +10,7 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.*;
 
-/**
- * @InterfaceName：PrizeTypeValidation
- * @Description：
- * @Author: 李齐宣
- * @Date：Created
- */
+
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

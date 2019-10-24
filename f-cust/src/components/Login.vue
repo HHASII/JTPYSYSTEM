@@ -9,17 +9,18 @@
     </el-form-item>
     <el-form-item prop="checkPass">
       <el-input type="password" v-model="loginForm.password"
-                auto-complete="off" placeholder="PASSWORD"></el-input>
+                auto-complete="off" placeholder="PASSWORD" @keyup.enter.native="submitClick"></el-input>
     </el-form-item>
-    <el-checkbox class="login_remember" v-model="checked"
-                 label-position="left">记住我</el-checkbox>
-    <el-form-item style="width: 100%">
-      <el-button type="primary" style="width: 100%" @click="submitClick">登录</el-button>
+    <el-form-item style="width: 100%" >
+      <el-button type="primary" style="width: 100%" @click="submitClick" >登录</el-button>
     </el-form-item>
-     <router-link to='/register'>注册</router-link>
-     <router-link to='/ForgetPassword'>重置密码</router-link>
+    <el-form-item style="width: 100%" >
+      <el-button  size="mini" type="primary" style="width: 30%  " class="butt1" @click="goresigter" >注册用户</el-button>
+      <el-button size="mini" type="primary" style="width: 30% "  class="butt2" @click="gorefresh"  >重置密码</el-button>
+    </el-form-item>
+
   </el-form>
-  
+
   </div>
 </template>
 <script>
@@ -39,6 +40,13 @@
       }
     },
     methods: {
+      goresigter(){
+        this.$router.push({path: '/register'});
+      },
+      gorefresh(){
+        this.$router.push({path: '/ForgetPassword'});
+      },
+
       submitClick: function () {
         var _this = this;
         this.loading = true;
@@ -60,26 +68,39 @@
         });
       }
     }
+
   }
 </script>
 <style>
+
+html{
+  overflow:hidden;
+}
   .login-container {
     border-radius: 15px;
     background-clip: padding-box;
-    margin: 180px auto;
+    margin: 100px auto;
     width: 350px;
     padding: 35px 35px 15px 35px;
     background: #fff;
     border: 1px solid #eaeaea;
     box-shadow: 0 0 25px #cac6c6;
+    border-radius: 10%;
+
   }
   .login_title {
     margin: 0px auto 40px auto;
     text-align: center;
     color: #505458;
   }
-  .login_remember {
-    margin: 0px 0px 35px 0px;
-    text-align: left;
+  .butt1 {
+    margin-right: 120px;
+    background-color: #6ea9ff;
+    border-radius: 2em;
+  }
+  .butt2 {
+
+    background-color: #6ea9ff;
+    border-radius: 2em;
   }
 </style>

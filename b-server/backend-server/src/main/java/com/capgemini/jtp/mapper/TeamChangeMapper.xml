@@ -6,7 +6,7 @@
 
     <select id="listTeamChangeLog" resultType="com.capgemini.jtp.entity.TeamChangeLog">
         select b.id,chineseName,b.empId,NowCst,NowSubCst,NewCst,NewSubCst,b.createUser,b.createTime,b.updateUser,b.updateTime,b.effectiveDate
-        from employee a RIGHT JOIN TeamChangeLog b on a.empId = b.empId and a.isDeleted=0
+        from employee a RIGHT JOIN teamchangelog b on a.empId = b.empId and a.isDeleted=0
         where b.isDeleted = '0'
         <if test="TeamChangeLogSearch.search != null  and TeamChangeLogSearch.search !=''">
             and (
@@ -29,7 +29,7 @@
 
     <select id="countTeamChangeName" resultType="Long">
         select count(*)
-        from employee a RIGHT JOIN TeamChangeLog b on a.empId = b.empId and a.isDeleted=0
+        from employee a RIGHT JOIN teamchangelog b on a.empId = b.empId and a.isDeleted=0
         where b.isDeleted = '0'
         <if test="TeamChangeLogSearch.search != null  and TeamChangeLogSearch.search !=''">
             and `chineseName` like concat(concat('%',#{TeamChangeLogSearch.search,jdbcType=VARCHAR}),'%')
@@ -40,14 +40,14 @@
     </select>
 
     <update id="deleteTeamChangeLogById" parameterType="com.capgemini.jtp.entity.TeamChangeLog">
-        update TeamChangeLog
+        update teamchangelog
         set `isDeleted` = '1'
 
         where id = #{TeamChangeLog.id,jdbcType=BIGINT}
     </update>
 
     <update id="deleteTeamChangeLogByEmpId" parameterType="com.capgemini.jtp.entity.TeamChangeLog">
-        update TeamChangeLog
+        update teamchangelog
         set `isDeleted` = '1', `updateUser` = #{TeamChangeLog.updateUser,jdbcType=BIGINT}, `updateTime` = #{TeamChangeLog.updateTime}
         where empId = #{TeamChangeLog.empId,jdbcType=BIGINT}
     </update>
@@ -58,7 +58,7 @@
 
     <update id="deleteTeamChangeLogBatch" parameterType="java.util.List">
         <foreach collection="list" item="item" index="index" open="" close="" separator=";">
-            update TeamChangeLog
+            update teamchangelog
             <set>
                 `isDeleted` = '1',
                 `updateUser` = #{item.updateUser,jdbcType=BIGINT},
@@ -71,12 +71,12 @@
     </update>
 
     <insert id="insertTeamChangeLog" parameterType="com.capgemini.jtp.entity.TeamChangeLog">
-        insert into TeamChangeLog (`empId`, `nowCst`,`nowSubCst`,`newCst`,`newSubCst`, `createUser`, `createTime`, `updateUser`, `updateTime`,`effectiveDate`)
+        insert into teamchangelog (`empId`, `nowCst`,`nowSubCst`,`newCst`,`newSubCst`, `createUser`, `createTime`, `updateUser`, `updateTime`,`effectiveDate`)
         values (#{TeamChangeLog.empId,jdbcType=VARCHAR}, #{TeamChangeLog.nowCst,jdbcType=VARCHAR},  #{TeamChangeLog.nowSubCst,jdbcType=VARCHAR},#{TeamChangeLog.newCst,jdbcType=VARCHAR},#{TeamChangeLog.newSubCst,jdbcType=VARCHAR},#{TeamChangeLog.createUser,jdbcType=BIGINT}, #{TeamChangeLog.createTime}, #{TeamChangeLog.updateUser,jdbcType=BIGINT}, #{TeamChangeLog.updateTime},#{TeamChangeLog.effectiveDate})
     </insert>
 
     <update id="updateTeamChangeLogById" parameterType="com.capgemini.jtp.entity.TeamChangeLog">
-        update TeamChangeLog
+        update teamchangelog
         <set>
             <if test="TeamChangeLog.empId != null">
                 `empId` = #{TeamChangeLog.empId,jdbcType=VARCHAR},
@@ -108,7 +108,7 @@
 
 
     <select id="getAll" resultType="com.capgemini.jtp.entity.TeamChangeLog">
-        select * from TeamChangeLog where isDeleted=0
+        select * from teamchangelog where isDeleted=0
     </select>
 
 
@@ -126,7 +126,7 @@
     </update>
 
     <insert id="insertProBatch">
-        insert into  TeamChangeLog (`empId`,`nowCst` ,`nowSubCst`, `newCst`,`newSubCst`, `createUser`,`createTime`,`updateUser`,`updateTime`)
+        insert into  teamchangelog (`empId`,`nowCst` ,`nowSubCst`, `newCst`,`newSubCst`, `createUser`,`createTime`,`updateUser`,`updateTime`)
         values
         <foreach collection="pros" item="pro" separator=",">
             (#{pro.empId,jdbcType=VARCHAR},#{pro.nowCst,jdbcType=VARCHAR}, #{pro.nowSubCst,jdbcType=VARCHAR},#{pro.newCst,jdbcType=VARCHAR}, #{pro.newSubCst,jdbcType=VARCHAR},

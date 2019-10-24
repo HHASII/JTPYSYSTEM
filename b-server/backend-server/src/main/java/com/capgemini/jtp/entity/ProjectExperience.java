@@ -7,10 +7,7 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * project_experience
- * @author 
- */
+
 @Data
 public class ProjectExperience extends BaseEntity {
     /**

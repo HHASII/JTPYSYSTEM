@@ -11,12 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * @Description: TODO
- * @Classname : MenuService
- * @author: Jason Jin
- * @date: 2019/5/19 11:43 PM
- */
+
 @Service
 @Transactional
 @CacheConfig(cacheNames = "menus_cache")
@@ -24,7 +19,6 @@ public class MenuServiceImpl implements MenuService {
 
     @Autowired
     MenuMapper menuMapper;
-
 //    @Cacheable(key = "#root.methodName")
     @Override
     public List<Menu> getAllMenu(){

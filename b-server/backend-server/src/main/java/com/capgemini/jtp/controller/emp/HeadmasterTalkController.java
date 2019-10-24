@@ -24,12 +24,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Huabin
- * @create: 2019-07-22 0:35
- **/
+
+
 
 @Api("JTP员工校长谈话类")
 @RestController
@@ -45,12 +41,8 @@ public class HeadmasterTalkController {
     @Autowired
     TemplateEngine templateEngine;
 
-    /**
-     * @Description: 新增单条谈话信息
-     * @Classname : HeadmasterTalkController
-     * @author: Huabin
-     * @create: 2019-07-22 0:35
-     **/
+
+
     @ApiOperation(value = "添加校长谈话记录")
     @ResponseBody
     @RequestMapping(value = "/addTalk", method = RequestMethod.POST)
@@ -69,12 +61,9 @@ public class HeadmasterTalkController {
         return RespBean.error("添加失败!");
     }
 
-    /**
-     * @Description: 根据数据库主键ID更新谈话信息
-     * @Classname : HeadmasterTalkController
-     * @author: Huabin
-     * @date: 2019/07/22 12.36 PM
-     */
+
+
+
     @ApiOperation(value = "编辑谈话信息")
     @ResponseBody
     @RequestMapping(value = "/updateTalkById", method = RequestMethod.POST)
@@ -96,12 +85,10 @@ public class HeadmasterTalkController {
         return RespBean.error("更新失败!");
     }
 
-    /**
-     * @Description: 根据主键ID删除谈话信息
-     * @Classname : HeadmasterTalkController
-     * @author: Huabin
-     * @date: 2019/07/22 12.36 PM
-     */
+
+
+
+
     @ApiOperation(value = "删除谈话信息")
     @ResponseBody
     @RequestMapping(value = "/deleteTalkById", method = RequestMethod.POST)
@@ -124,12 +111,8 @@ public class HeadmasterTalkController {
         return RespBean.error("删除失败!");
     }
 
-    /**
-     * @Description: 根据条件筛选查询谈话信息
-     * @Classname : HeadmasterTalkController
-     * @author: Huabin
-     * @date: 2019/07/22 14:25 PM
-     */
+
+
     @ApiOperation(value = "查询谈话信息")
     @ResponseBody
     @RequestMapping(value = "/listTalk", method = RequestMethod.POST)
@@ -141,24 +124,19 @@ public class HeadmasterTalkController {
         return RespBean.error("查询失败！");
     }
 
-    /**
-     * @Description: 导出Excel
-     * @Classname : EmpBasicController
-     * @author: Huabin
-     * @date: 2019/07/25 7:57 PM
-     */
+
+
+
     @ApiOperation(value = "导出用户信息byExcel")
     @RequestMapping(value = "/exportTalk", method = RequestMethod.GET)
     public ResponseEntity<byte[]> exportTalk() {
         return headmasterTalkService.exportAllTalks();
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/28
-     * @description: 批量删除校长谈话信息
-     * @classname: HeadmasterTalkController
-     */
+
+
+
+
     @ApiOperation(value = "批量删除校长谈话信息")
     @RequestMapping(value = "/deleteBatchTalk", method = RequestMethod.POST)
     public RespBean deleteBatchTalk(@RequestBody DeleteBatchVo deleteBatchVo,
@@ -174,12 +152,9 @@ public class HeadmasterTalkController {
         return RespBean.error("删除失败！");
     }
 
-    /**
-     * @Description: 导入Excel 添加Talk
-     * @Classname : HeadmasterTalkController
-     * @author:Huabin
-     * @date: 2019/7/29 11:30 PM
-     */
+
+
+
     @ApiOperation(value = "通过导入Excel添加用户")
     @RequestMapping(value = "/importTalk", method = RequestMethod.POST)
     public RespBean importTalk(MultipartFile file, HttpServletRequest request) {

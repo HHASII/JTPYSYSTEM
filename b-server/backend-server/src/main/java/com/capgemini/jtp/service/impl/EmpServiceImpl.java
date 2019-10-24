@@ -21,12 +21,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @ClassName: EmpService
- * @Description: 操作员工信息类
- * @Author: Brady
- * @Date: 5/30/2019 11:38 AM
- */
 
 @Service
 @Slf4j
@@ -50,15 +44,6 @@ public class EmpServiceImpl implements EmpService {
     @Autowired
     HrService hrService;
 
-    /**
-     * @Title: listEmp
-     * @Description: 查询员工信息
-     * @Param: [employeeSearchVo]
-     * @Return: java.util.List<com.capgemini.jtp.vo.employee.response.EmployeeVo>
-     * @Throws:
-     * @Author: Brady
-     * @Date: 5/30/2019 4:51 PM
-     */
     @Override
     public EmployeeResponseVo listEmp(EmployeeSearchVo employeeSearchVo) {
         Map<Long, Hr> hrMap = hrService.getAllHrMap();
@@ -86,15 +71,7 @@ public class EmpServiceImpl implements EmpService {
         return employeeResponseVo;
     }
 
-    /**
-     * @Title: listEmpVo
-     * @Description: 所有的员工的工号及姓名list
-     * @Param: []
-     * @Return: java.util.List<com.capgemini.jtp.vo.employee.response.EmpListVo>
-     * @Throws:
-     * @Author: Jason Jin
-     * @Date: 5/30/2019 4:51 PM
-     */
+
     public List<EmpListVo> listEmpVo() {
         List<Employee> employeeList = empMapper.listEmpVo();
         List<EmpListVo> empListVos = new ArrayList<EmpListVo>();
@@ -104,15 +81,7 @@ public class EmpServiceImpl implements EmpService {
         return empListVos;
     }
 
-    /**
-     * @Title: updateEmpById
-     * @Description: 根据数据库主键ID修改员工信息
-     * @Param: [EmployeeEditVo, userId]
-     * @Return: java.lang.Integer
-     * @Throws:
-     * @Author: Brady
-     * @Date: 5/30/2019 11:45 AM
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer updateEmpById(EmployeeEditVo employeeEditVo) {
@@ -128,15 +97,7 @@ public class EmpServiceImpl implements EmpService {
         return empMapper.updateEmpById(employee);
     }
 
-    /**
-     * @Title: addEmp
-     * @Description: 新增单条员工信息
-     * @Param: [EmployeeEditVo, userId]
-     * @Return: java.lang.Integer
-     * @Throws:
-     * @Author: Brady
-     * @Date: 5/30/2019 11:50 AM
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer addEmp(EmployeeEditVo employeeEditVo) {
@@ -151,15 +112,7 @@ public class EmpServiceImpl implements EmpService {
         return empMapper.insertEmp(employee);
     }
 
-    /**
-     * @Title: deleteEmp
-     * @Description: 根据数据库主键ID删除员工信息
-     * @Param: [EmployeeDeleteVo]
-     * @Return: java.lang.Integer
-     * @Throws:
-     * @Author: Brady
-     * @Date: 5/31/2019 12:31 AM
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer deleteEmpById(EmployeeDeleteVo employeeDeleteVo) {
@@ -183,15 +136,7 @@ public class EmpServiceImpl implements EmpService {
         return empMapper.deleteEmpById(employee);
     }
 
-    /**
-     * @Title: exportAllEmployees
-     * @Description: 导出所有员工信息到Excel
-     * @Param: []
-     * @Return: ResponseEntity<byte[]>
-     * @Throws:
-     * @Author: Brady
-     * @Date: 6/4/2019 12:31 AM
-     */
+
     @Override
     public ResponseEntity<byte[]> exportAllEmployees() {
         List<EmployeeVo> employeeVoList = null;
@@ -210,26 +155,13 @@ public class EmpServiceImpl implements EmpService {
         return PoiUtils.exportEmp2Excel(employeeVoList);
     }
 
-    /**
-     * @Title: importEmpsFromExcel
-     * @Description: 导入Excel中的员工信息
-     * @Param: [List<Employee>]
-     * @Return: java.lang.Integer
-     * @Throws:
-     * @Author: Brady
-     * @Date: 6/4/2019 5:31 PM
-     */
+
     @Override
     public Integer importEmpsFromExcel(List<Employee> employeeList) {
         return empMapper.insertEmpBatch(employeeList);
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/28
-     * @description: 
-     * @classname: EmpServiceImpl
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer deleteEmpBatch(DeleteBatchVo deleteBatchVo,

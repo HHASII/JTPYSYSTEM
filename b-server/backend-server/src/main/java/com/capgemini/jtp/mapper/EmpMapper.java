@@ -11,12 +11,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @Description: TODO
- * @Classname : EmpMapper
- * @author: Jason Jin
- * @date: 2019/5/19 11:44 PM
- */
+
+
 @Repository
 public interface EmpMapper {
 

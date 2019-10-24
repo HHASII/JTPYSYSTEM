@@ -7,23 +7,8 @@ import jdk.internal.dynalink.beans.StaticClass;
 
 import java.util.Date;
 
-/**
- * @ClassName: ConvertUtils
- * @Description: Vo与Entity之间的互相转化工具类
- * @Author: Brady
- * @Date: 5/30/2019 10:56 AM
- */
 public class ConvertUtils {
 
-    /**
-     * @Title: convertEmployeeVoToEntity
-     * @Description: 将EmployeeVo中各属性的值对应赋给Employee实体类
-     * @Param: [employee]
-     * @Return: com.capgemini.jtp.vo.employee.response.EmployeeVo
-     * @Throws:
-     * @Author: Huabin
-     * @Date: 7/22/2019 11:03 PM
-     */
     public static Employee convertEmployeeVoToEntity(EmployeeEditVo employeeEditVo) {
         Employee employee = new Employee();
         employee.setId(employeeEditVo.getId());
@@ -56,12 +41,7 @@ public class ConvertUtils {
          return employee;
     }
 
-    /**
-     * @Description: 将EmployeeVo中各属性的值对应赋给Employee实体类
-     * @Classname : ConvertUtils
-     * @author: Jason Jin
-     * @date: 2019/6/8 10:20 AM
-     */
+
     public static EmployeePrize convertEmpPrizeVoToEntity(EmpPrizeEditVo empPrizeEditVo) {
         EmployeePrize employeePrize = new EmployeePrize();
         employeePrize.setId(empPrizeEditVo.getId());
@@ -71,12 +51,7 @@ public class ConvertUtils {
         return employeePrize;
     }
 
-    /**
-     * @Description: 将EmployeePrize中各属性的值对应赋给EmpPrizeVo实体类
-     * @Classname : ConvertUtils
-     * @author: Jason Jin
-     * @date: 2019/6/7 11:15 PM
-     */
+
     public static EmpPrizeVo convertEmpPrizeEntityToVo(EmployeePrize employeePrize) {
         EmpPrizeVo empPrizeVo = new EmpPrizeVo();
         empPrizeVo.setId(employeePrize.getId());
@@ -92,15 +67,7 @@ public class ConvertUtils {
 
 
 
-    /**
-     * @Title: convertEmployeeEntityToVo
-     * @Description: 将Employee实体类中各属性的值对应赋给EmployeeVo
-     * @Param: [employeeVo]
-     * @Return: com.capgemini.jtp.entity.Employee
-     * @Throws:
-     * @Author: Huabin
-     * @Date: 7/22/2019 11:04 PM
-     */
+
     public static EmployeeVo convertEmployeeEntityToVo(Employee employee) {
         EmployeeVo employeeVo = new EmployeeVo();
         employeeVo.setId(employee.getId());
@@ -137,12 +104,7 @@ public class ConvertUtils {
         return employeeVo;
     }
 
-    /**
-     * @Description: 将Employee实体类中各属性的值对应赋给EmpListVo
-     * @Classname : ConvertUtils
-     * @author: Jason Jin
-     * @date: 2019/6/23 12:01 PM
-     */
+
     public static EmpListVo convertEmployeeEntityToListVo(Employee employee) {
         EmpListVo empListVo = new EmpListVo();
         empListVo.setId(employee.getId());
@@ -152,11 +114,6 @@ public class ConvertUtils {
     }
 
 
-    /**
-     * @Description: 将ProjectExperience中各属性的值对应赋给ProjectExperienceVo实体类
-     * @Classname : ConvertUtils
-     * @author: 陈宇雄
-     */
 
     public static ProjectExperienceVo convertProjectExperienceToVo(ProjectExperience projectExperience) {
         ProjectExperienceVo projectExperienceVo = new ProjectExperienceVo();
@@ -175,11 +132,7 @@ public class ConvertUtils {
     }
 
 
-    /**
-     * @Description: 将ProjectExperienceAddEditVo中各属性的值对应赋给ProjectExperience实体类
-     * @Classname : ConvertUtils
-     * @author: 陈宇雄
-     */
+
     public static ProjectExperience convertProjectExperienceAddEditVoToEntity(ProjectExperienceAddEditVo projectExperienceAddEditVo) {
         ProjectExperience projectExperience = new ProjectExperience();
         projectExperience.setId(projectExperienceAddEditVo.getId());
@@ -192,12 +145,7 @@ public class ConvertUtils {
         return projectExperience;
     }
 
-    /**
-     * @Description: 将HeadmasterTalk中各属性的值对应赋给HeadmasterTalkVo实体类
-     * @Classname : ConvertUtils
-     * @author: Huabin
-     * @date: 2019/07/21 22:16
-     */
+
     public static HeadmasterTalkVo convertHeadmasterTalkEntityToVo(HeadmasterTalk headmasterTalk){
         HeadmasterTalkVo headmasterTalkVo = new HeadmasterTalkVo();
         headmasterTalkVo.setId(headmasterTalk.getId());
@@ -212,12 +160,7 @@ public class ConvertUtils {
         return headmasterTalkVo;
     }
 
-    /**
-     * @Description: 将HeadmasterTalkVo中各属性的值对应赋给HeadmasterTalk实体类
-     * @Classname : ConvertUtils
-     * @author: Huabin
-     * @date: 2019/07/21 19:07
-     */
+
     public static HeadmasterTalk convertHeadmasterTalkVoToEntity(HeadmasterTalkEditVo headmasterTalkEditVo) {
         HeadmasterTalk headmasterTalk = new HeadmasterTalk();
         headmasterTalk.setId(headmasterTalkEditVo.getId());
@@ -227,12 +170,7 @@ public class ConvertUtils {
         headmasterTalk.setHeadMaster(headmasterTalkEditVo.getHeadMaster());
         return headmasterTalk;
     }
-    /**
-     * @Description: 将GrowingExperienceVo中各属性的值对应赋给GrowingExperience实体类
-     * @Classname : ConvertUtils
-     * @author: Wang,Chao
-     * @date: 2019/7/22 09.22 PM
-     */
+
     public static GrowingExperience convertGrowingExperienceVoToEntity(GrowingExperienceEditVo growingExperienceEditVo) {
         GrowingExperience growingExperience = new GrowingExperience();
         growingExperience.setId(growingExperienceEditVo.getId());
@@ -242,12 +180,7 @@ public class ConvertUtils {
         return growingExperience;
     }
 
-    /**
-     * @Description: 将GrowingExperience中各属性的值对应赋给GrowingExperienceVo实体类
-     * @Classname : ConvertUtils
-     * @author: Wang, Chao
-     * @date: 2019/7/22 09:15 PM
-     */
+
     public static GrowingExperienceVo convertGrowingExperienceEntityToVo(GrowingExperience growingExperience) {
         GrowingExperienceVo growingExperienceVo = new GrowingExperienceVo();
         growingExperienceVo.setId(growingExperience.getId());
@@ -361,7 +294,7 @@ public class ConvertUtils {
     }
 
     //EmpMsgEntityToVo
-    public static EmpMsgVo convertTeamChangeLogEntityToVo(EmpMsg empMsg) {
+    public static EmpMsgVo convertEmpMsgEntityToVo(EmpMsg empMsg) {
         EmpMsgVo empMsgVo = new EmpMsgVo();
         empMsgVo.setId(empMsg.getId());
         empMsgVo.setMsg(empMsg.getEmpMsg());

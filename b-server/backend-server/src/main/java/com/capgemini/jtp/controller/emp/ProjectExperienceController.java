@@ -24,12 +24,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 
-/**
- * @ClassName：ProjectExperienceController
- * @Description：
- * @Author: 陈宇雄
- * @Date：Created in 2019/07/21 18:22
- */
+
+
+
 @Api("JTP员工项目经历类")
 @RestController
 @RequestMapping("/employee/project")
@@ -115,24 +112,19 @@ public class ProjectExperienceController {
         return RespBean.error("删除失败!");
     }
 
-    /**
-     * @Description: 导出Excel
-     * @Classname : EmpBasicController
-     * @author: Huabin
-     * @date: 2019/07/25 7:57 PM
-     */
+
+
+
+
     @ApiOperation(value = "导出用户信息byExcel")
     @RequestMapping(value = "/exportEmp", method = RequestMethod.GET)
     public ResponseEntity<byte[]> exportPro() {
         return projectExperienceService.exportAllPros();
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/28
-     * @description: 批量删除项目经历信息
-     * @classname: ProjectExperienceController
-     */
+
+
+
     @ApiOperation(value = "批量删除项目经历信息")
     @RequestMapping(value = "/deleteBatchPro", method = RequestMethod.POST)
     public RespBean deleteBatchPro(@RequestBody DeleteBatchVo deleteBatchVo,
@@ -148,12 +140,9 @@ public class ProjectExperienceController {
         return RespBean.error("删除失败！");
     }
 
-    /**
-     * @Description: 导入Excel 添加Pro
-     * @Classname : ProjectExperienceController
-     * @author: Huabin
-     * @date: 2019/7/29 11:30 PM
-     */
+
+
+
     @ApiOperation(value = "通过导入Excel添加用户")
     @RequestMapping(value = "/importPro", method = RequestMethod.POST)
     public RespBean importPro(MultipartFile file, HttpServletRequest request) {

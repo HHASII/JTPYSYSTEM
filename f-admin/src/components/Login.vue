@@ -8,23 +8,13 @@
     </el-form-item>
     <el-form-item prop="checkPass">
       <el-input type="password" v-model="loginForm.password"
-                auto-complete="off" placeholder="PASSWORD"></el-input>
+                auto-complete="off" placeholder="PASSWORD" @keyup.enter.native="submitClick"></el-input>
     </el-form-item>
-       <!--
-      <el-form-item prop="checkConfirmCode">
-        <el-row type="flex" class="row-bg" justify="space-between">
-        <el-input type="password" v-model="loginForm.confirm_code"
-                  auto-complete="off" placeholder="验证码" style="width:200px"></el-input>
-          <el-button type="primary" plain  @click="get_confirm_code" v-show=confirm_button_show >{{confirm_code_send_text}}</el-button>
-          <el-button type="primary" plain   disabled v-show=!confirm_button_show>{{confirm_code_wait_text}}</el-button>
-        </el-row>
-      </el-form-item>
-      -->
 
 
-
-    <el-checkbox class="login_remember" v-model="checked"
-                 label-position="left">REMEMBER</el-checkbox>
+<!-- 记住我，属于springSecurity的功能-->
+    <!--<el-checkbox class="login_remember" v-model="checked"-->
+                 <!--label-position="left">REMEMBER</el-checkbox>-->
     <el-form-item style="width: 100%">
       <el-button type="primary" style="width: 100%" @click="submitClick">LOGIN</el-button>
     </el-form-item>
@@ -41,7 +31,7 @@
         checked: true,
         loginForm: {
           username: 'admin',
-          password: 'quanbudiaodui666'
+          password: ''
         },
         loading: false,
 

@@ -5,12 +5,7 @@ import lombok.Setter;
 
 import java.util.List;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Jason Jin
- * @create: 2019-06-07 18:13
- **/
+
 @Getter
 @Setter
 

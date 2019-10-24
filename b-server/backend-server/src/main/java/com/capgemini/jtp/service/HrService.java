@@ -9,12 +9,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @Description: TODO
- * @Classname : HrService
- * @author: Jason Jin
- * @date: 2019/5/19 11:44 PM
- */
 public interface HrService extends UserDetailsService {
 
     int hrReg(HrEditVo hrEditVo);

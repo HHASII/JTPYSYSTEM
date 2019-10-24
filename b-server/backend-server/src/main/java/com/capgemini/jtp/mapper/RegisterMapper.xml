@@ -41,7 +41,7 @@
     <insert id="insertHrRole" parameterType="com.capgemini.jtp.entity.RegisterInfo">
         insert into `hr_role`(`hrid`,`rid`)
         values (#{registerInfoVo.empId,jdbcType=BIGINT},
-        3
+        1
         )
     </insert>
 

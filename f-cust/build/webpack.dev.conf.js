@@ -44,14 +44,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
-    // https://github.com/ampedandwired/html-webpack-plugin
+
+
+   //放在static的图标，需要以===  .static ====开头
+  //影响了后端的scurity的问题
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      favicon:'./favicon.ico',
-      inject: true
-    }),
-  ]
+    filename: 'index.html',
+    template: 'index.html',
+    favicon:'./static/favicon.ico',
+    inject: true
+  }),
+]
 })
 
 module.exports = new Promise((resolve, reject) => {

@@ -8,7 +8,7 @@
           <el-table-column prop="createTime" label="时间"></el-table-column>
           <el-table-column fixed="right" label="操作">
             <template slot-scope="scope">
-              <el-button @click="readed(scope.row.id)" type="text" size="small">已读</el-button>
+              <el-button @click="readed(scope.row.id)" type="text" size="small">标为已读</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -36,8 +36,8 @@
         ></el-pagination>
       </el-tab-pane>
     </el-tabs>
-      
-    
+
+
   </div>
 </template>
 
@@ -45,7 +45,7 @@
 <script>
 export default {
   name: "EmpMsg",
-  
+
   data() {
     return {
       activeName: "未读消息",
@@ -55,8 +55,9 @@ export default {
       queryInfo: {
         search: 0,
         size: 10,
-        start: 0,
-        title:""
+        title:"",
+        start: 0
+
       }, // search 1已读， 0未读
       totalPage: 1
     };
@@ -93,23 +94,7 @@ export default {
           console.log(msg);
           this.msgList = msg.data.obj.empMsgVoList;
           this.msgsize = msg.data.obj.listCount.toString();
-          
-        }
-      });
-    },
-    getReadedData() {
-      this.loading = true;
-      this.queryInfo.search="1";
-      this.postRequest(
-        "/employee/MsgNotification/listEmpMsg",
-        this.queryInfo
-      ).then(msg => {
-        this.loading = false;
-        if (msg && msg.status == 200) {
-          console.log(msg);
-          this.msgList = msg.data.obj.empMsgVoList;
-          this.msgsize = msg.data.obj.listCount.toString();
-         
+
         }
       });
     },

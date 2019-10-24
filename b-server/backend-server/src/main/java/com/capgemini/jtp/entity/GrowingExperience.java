@@ -3,10 +3,7 @@ package com.capgemini.jtp.entity;
 import lombok.Data;
 
 
-/**
- * growing_experience
- * @author 
- */
+
 @Data
 public class GrowingExperience extends BaseEntity {
     /**

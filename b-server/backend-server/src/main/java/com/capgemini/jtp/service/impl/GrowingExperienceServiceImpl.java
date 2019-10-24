@@ -38,12 +38,7 @@ public class GrowingExperienceServiceImpl implements GrowingExperienceService {
 
     @Autowired
     EmpMsgService empMsgService;
-    /**
-     * @Description: 查询成长经历
-     * @Classname : GrowingExperienceService
-     * @author: Wang, Chao
-     * @date: 2019/7/22 18:51 PM
-     */
+
     @Override
     public GrowingExperienceResponseVo listExperience(GrowingExperienceSearchVo growingExperienceSearchVo) {
         //获取所有系统用户信息的Map
@@ -70,12 +65,7 @@ public class GrowingExperienceServiceImpl implements GrowingExperienceService {
         return growingExperienceResponseVo;
     }
 
-    /**
-     * @Description: 根据数据库主键ID修改成长经历
-     * @Classname : EmpPrizeService
-     * @author: Wang, Chao
-     * @date: 2019/6/8 10:18 AM
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer updateExperienceById(GrowingExperienceEditVo growingExperienceEditVo) {
@@ -90,17 +80,12 @@ public class GrowingExperienceServiceImpl implements GrowingExperienceService {
         return growingExperienceMapper.updateExperienceById(growingExperience);
     }
 
-    /**
-     * @Description: 新增单条成长经历
-     * @Classname : EmpPrizeService
-     * @author: Wang.Chao
-     * @date: 2019/7/22 20.11
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer addExperience(GrowingExperienceEditVo growingExperienceEditVo) {
 
-        if(studyDeclarationMapper.getRid(growingExperienceEditVo.getOperationUserId())==3){
+        if(studyDeclarationMapper.getRid(growingExperienceEditVo.getOperationUserId())==1){
             String createUserName = studyDeclarationMapper.getStudyDeclarationName(growingExperienceEditVo.getEmpId());
             String msg = createUserName+"添加了认证申报";
             empMsgService.addEmpMsg(msg);
@@ -114,12 +99,7 @@ public class GrowingExperienceServiceImpl implements GrowingExperienceService {
         return growingExperienceMapper.insertExperience(growingExperience);
     }
 
-    /**
-     * @Description: 根据数据库主键ID删除成长经历
-     * @Classname : EmpPrizeService
-     * @author: Wang.Chao
-     * @date: 2019/7/22 20:42
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer deleteExperienceById(GrowingExperienceDeleteVo growingExperienceDeleteVo) {
@@ -134,15 +114,7 @@ public class GrowingExperienceServiceImpl implements GrowingExperienceService {
         return growingExperienceMapper.deleteExperienceById(growingExperience);
     }
 
-    /**
-     * @Title: deletePrizeInfoByEmpId
-     * @Description: 根据员工表主键ID删除员工成长经历表中对应记录
-     * @Param: [empId]
-     * @Return: void
-     * @Throws:
-     * @Author: Wang, Chao
-     * @Date: 2019/7/22 21.32 PM
-     */
+
     @Override
     public Integer deletExperienceInfoByEmpId(Employee employee) {
         GrowingExperience growingExperience = new GrowingExperience();
@@ -152,15 +124,7 @@ public class GrowingExperienceServiceImpl implements GrowingExperienceService {
         return growingExperienceMapper.deleteExperienceInfoByEmpId(growingExperience);
     }
 
-    /**
-     * @Title: importEmpsFromExcel
-     * @Description: 导出Excel中的员工成长经历信息
-     * @Param: [List<Employee>]
-     * @Return: java.lang.Integer
-     * @Throws:
-     * @Author: Huabin
-     * @Date: 7/26/2019 8:09 PM
-     */
+
     @Override
     public ResponseEntity<byte[]> exportAllGrows() {
         List<GrowingExperienceVo> growingExperienceVosList = null;
@@ -178,12 +142,7 @@ public class GrowingExperienceServiceImpl implements GrowingExperienceService {
         return PoiUtils.exportGrow2Excel(growingExperienceVosList);
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/28
-     * @description: deleteExpBatch
-     * @classname: GrowingExperienceServiceImpl
-     */
+
     @Override
     public Integer deleteExpBatch(DeleteBatchVo deleteBatchVo,
                                   Long operationUserId){
@@ -200,28 +159,14 @@ public class GrowingExperienceServiceImpl implements GrowingExperienceService {
         return growingExperienceMapper.deleteExpBatch(growingExperiences);
     }
 
-    /**
-     * @Title: importGrowsFromExcel
-     * @Description: 导入Excel中的培训信息
-     * @Param: [List<Employee>]
-     * @Return: java.lang.Integer
-     * @Throws:
-     * @Author: Huabin
-     * @Date: 7/29/2019 5:31 PM
-     */
+
     @Override
     public Integer importGrowsFromExcel(List<GrowingExperience> growingExperienceList) {
         return growingExperienceMapper.insertGrowBatch(growingExperienceList);
     }
 
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 员工编辑个人经历
-     * @Date 0:38 2019/8/27
-     * @Param
-     * @return
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer updateStaffExperienceById(GrowingExperienceEditVo growingExperienceEditVo) {

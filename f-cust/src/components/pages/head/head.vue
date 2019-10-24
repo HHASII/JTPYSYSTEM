@@ -2,10 +2,13 @@
   <div>
     <el-header class="elHeader">
       <span class="home_title">JTP MANGEMENT SYSTEM</span>
-      <span>
-        <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px; color: #fff"></i>
-          <span class="user colorWhite">{{userName}}</span>
+      <span >
+        <el-dropdown style="">
+          <span class="user colorWhite" style="cursor: pointer;" >
+            {{userName}}
+    <!--<el-image :src="src" style="width: 40px;height: 40px;margin-left: 10px;border-radius: 40px;"></el-image>-->
+
+          </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="userInfo()">个人资料</el-dropdown-item>
             <el-dropdown-item @click.native="lagout()">退出系统</el-dropdown-item>
@@ -21,7 +24,8 @@ export default {
   name: "myhead",
   data() {
     return {
-      userName: localStorage.getItem('name')
+      userName: localStorage.getItem('name'),
+      src: localStorage.getItem('userface'),
     };
   },
   created() {},
@@ -35,7 +39,7 @@ export default {
     },
     lagout() {
       this.$router.push({
-        path: '../login'
+        path: '../'
       })
     }
   }

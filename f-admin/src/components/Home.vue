@@ -7,10 +7,25 @@
 
         <div style="display: flex;align-items: center;margin-right: 7px">
 
-  <span class="el-dropdown-link home_userinfo" style="display: flex;align-items: center">
+    <div style="display: flex;align-items: center;margin-right: 7px">
+          <el-badge style="margin-right: 30px ; cursor: pointer;" :is-dot="this.$store.state.nfDot">
+            <i class="fa fa-bell" @click="goChat" style=" color:yellow ;border-right:5px white"></i>
+          </el-badge>
+          <el-dropdown @command="handleCommand">
+  <span class="el-dropdown-link home_userinfo" style="display: flex;align-items: center ;margin-right: 10px">
     {{user.name}}
-    
+    <i> <img :src="user.userface? user.userface: require('../assets/imgs/user-header.png')"
+             alt=""
+             style="width: 40px;height: 40px;border-radius: 40px;margin-left: 10px;">
+    </i>
   </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>个人中心</el-dropdown-item>
+              <el-dropdown-item>设置</el-dropdown-item>
+              <el-dropdown-item command="logout" divided>注销</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
         </div>
 
       </el-header>
@@ -28,8 +43,13 @@
                                 style="padding-left: 30px;padding-right:0px;margin-left: 0px;width: 170px;text-align: left"
                                 v-for="child in item.children"
                                 :index="child.path"
-                                :key="child.path">{{child.name}}
+                                :key="child.path">
+                    <template slot="title">
+                      <i :class="child.iconCls" style="color: #20a0ff;width: 14px; padding-right: 8px"></i>
+                      <span slot="title">{{child.name}}</span>
+                    </template>
                   </el-menu-item>
+
                 </el-submenu>
               </template>
             </el-menu>
@@ -54,6 +74,9 @@
     mounted: function () {
     },
     methods: {
+      goChat(){
+        this.$router.push({path: '/EmpMsg'});
+      },
       open() {
         this.$message('这是一条消息提示');
       },
@@ -116,13 +139,7 @@
     background-color: #ECECEC;
   }
 
-  .home-main {
-    background-color: #fff;
-    color: #000;
-    text-align: center;
-    margin: 0px;
-    padding: 0px;;
-  }
+
 
   .home_title {
     color: #fff;

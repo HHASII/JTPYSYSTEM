@@ -9,12 +9,7 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.*;
 
-/**
- * @InterfaceName：DepartmentValidation
- * @Description：
- * @Author: 陈宇雄
- * @Date：Created in 2019/07/29 11:35
- */
+
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

@@ -276,8 +276,8 @@
           value: 'Project Angel',
           label: 'Project Angel'
         }, {
-          value: 'CSR',
-          label: 'CSR'
+          value: '潜力派学员',
+          label: '潜力派学员'
         }],
         value: '',
         emps: [],
@@ -482,7 +482,7 @@
           "search":_this.keywords,
           "prizeType": "",
           "size": "10",
-          "start": (this.currentPage-1)*10          
+          "start": (this.currentPage-1)*10
         };
         this.tableLoading = true;
         // this.postRequest("/employee/basic/listEmp?page=" + this.currentPage + "&size=10&keywords=" + this.keywords + "&politicId=" + this.emp.politicId + "&nationId=" + this.emp.nationId + "&posId=" + this.emp.posId + "&jobLevelId=" + this.emp.jobLevelId + "&engageForm=" + this.emp.engageForm + "&departmentId=" + this.emp.departmentId + "&beginDateScope=" + this.beginDateScope).then(resp=> {
@@ -492,7 +492,7 @@
           if (resp.data && resp.status == 200) {
             var data = resp.data.obj.empPrizeVoList;
             _this.emps = data;
-            
+
             _this.totalCount = resp.data.obj.listCount;
             // _this.totalCount = data.length;
             // _this.emps = data;
@@ -511,7 +511,7 @@
 //            _this.emptyEmpData();
           }
         })
-        
+
       },
       addEmp(formName){
         var _this = this;
@@ -531,7 +531,7 @@
               })
             } else {
               //添加
-              this.tableLoading = true;              
+              this.tableLoading = true;
               this.postRequest("/employee/prize/addPrize", this.emp).then(resp=> {
                 _this.tableLoading = false;
                 if (resp && resp.status == 200) {
@@ -583,7 +583,7 @@
         this.postRequest("/employee/prize/listPrize",datas).then(resp=> {
           if (resp.data && resp.data.status == 200) {
             var data = resp.data.obj.empPrizeVoList;
-            
+
             _this.emps = data;
             // _this.id = data.id;
             _this.emp.id = data.id;
@@ -659,21 +659,5 @@
   };
 </script>
 <style>
-  .el-dialog__body {
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
 
-  .slide-fade-enter-active {
-    transition: all .8s ease;
-  }
-
-  .slide-fade-leave-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  }
-
-  .slide-fade-enter, .slide-fade-leave-to {
-    transform: translateX(10px);
-    opacity: 0;
-  }
 </style>

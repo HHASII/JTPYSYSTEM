@@ -3,12 +3,7 @@ package com.capgemini.jtp.vo.employee.request;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Huabin
- * @create: 2019-07-21 15:45
- **/
+
 @Getter
 @Setter
 public class HeadmasterTalkDeleteVo {

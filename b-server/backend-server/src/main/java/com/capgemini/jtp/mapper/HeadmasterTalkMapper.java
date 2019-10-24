@@ -8,12 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: HuaBin
- * @create: 2019-07-21 22:59
- **/
 @Repository
 public interface HeadmasterTalkMapper {
     List<HeadmasterTalk> listTalk(@Param("talkSearch") HeadmasterTalkSearchVo headmasterTalkSearchVo);

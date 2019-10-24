@@ -24,10 +24,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description: 员工信息导入导出Excel工具类
- * @Classname : PoiUtils
- * @author: Brady
- * @date: 2019/5/19 11:47 PM
+ * @ Description   :  员工信息导入导出Excel工具类
+ * @ Author        :  HASI
+ * @ CreateDate    :  2019/10/16 0016 19:33
+ * @ UpdateUser    :  HASI
+ * @ UpdateDate    :  2019/10/16 0016 19:33
+ * @ UpdateRemark  :  修改内容
+ * @ Version       :  1.0
  */
 @Slf4j
 public class PoiUtils {

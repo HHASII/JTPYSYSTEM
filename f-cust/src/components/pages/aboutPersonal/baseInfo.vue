@@ -4,7 +4,7 @@
       <tbody>
         <tr>
           <td rowspan="3">
-            <img :src="user.userHead? user.userHead: require('../../../assets/imgs/user-header.png')" alt="">
+            <img :src="user.userface? user.userface: require('../../../assets/imgs/user-header.png')" alt="">
           </td>
           <td>姓名： {{user.chineseName}}</td>
           <td>性别： {{user.gender}}</td>
@@ -40,7 +40,10 @@ export default {
   name: "baseInfo",
   data() {
     return {
-      user: {}
+      user: {
+       userface:""
+
+      }
     };
   },
   created() {
@@ -48,12 +51,13 @@ export default {
       resp => {
         if (resp && resp.status == 200) {
           // _this.emp.workId = resp.data;
-          console.log(resp);
+          console.log("resp",resp);
           this.user = resp.data.obj;
           this.user.hireDate = this.user.hireDate.substring(0, 10);
         }
       }
     );
+
   },
   mounted() {},
   methods: {

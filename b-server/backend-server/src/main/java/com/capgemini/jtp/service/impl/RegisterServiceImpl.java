@@ -99,7 +99,7 @@ public class RegisterServiceImpl implements RegisterService {
         String encode = encoder.encode(registerInfoVo.getPassword());
         registerInfoVo.setPassword(encode);
         registerInfoVo.setChineseName(registerMapper.getUserChineseName(registerInfoVo));
-        System.out.println(registerInfoVo.getChineseName()+"李齐宣");
+        System.out.println(registerInfoVo.getChineseName()+"哈斯");
         //插入数据库 insert
         registerMapper.insertUser(registerInfoVo);
 

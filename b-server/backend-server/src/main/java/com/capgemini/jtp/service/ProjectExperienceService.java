@@ -8,12 +8,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-/**
- * @ClassName：ProjectExperienceService
- * @Description：
- * @Author: 陈宇雄
- * @Date：Created in 2019/07/21 17:10
- */
+
 public interface ProjectExperienceService {
 
     ProjectExperienceResponseVo listProjectExperience(ProjectExperienceSearchVo ProjectExperienceSearchVo);

@@ -21,12 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * @Description: TODO
- * @Classname : CustomExceptionResolver
- * @author: Jason Jin
- * @date: 2019/5/19 11:46 PM
- */
 @Component
 @ControllerAdvice
 public class CustomExceptionResolver implements HandlerExceptionResolver {
@@ -43,12 +37,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
     }
 
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/28
-     * @description: MethodArgumentNotValidException异常返回处理
-     * @classname: CustomExceptionResolver
-     */
+
     @ResponseBody
     @ExceptionHandler(value= MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)

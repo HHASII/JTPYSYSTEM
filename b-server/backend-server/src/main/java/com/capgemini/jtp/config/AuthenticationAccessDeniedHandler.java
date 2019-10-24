@@ -11,12 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
- * @Description: TODO
- * @Classname : AuthenticationAccessDeniedHandler
- * @author: Jason Jin
- * @date: 2019/5/19 11:47 PM
- */
+//403服务器拒绝接受此次请求，用于处理403请求
+
 @Component
 public class AuthenticationAccessDeniedHandler implements AccessDeniedHandler {
 

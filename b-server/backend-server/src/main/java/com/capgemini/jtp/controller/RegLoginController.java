@@ -6,10 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Description: TODO
- * @Classname : RegLoginController
- * @author: Jason Jin
- * @date: 2019/5/19 11:46 PM
+ * @ Description   :
+ * @ Author        :  HASI
+ * @ CreateDate    :  2019/10/15 0015 11:09
+ * @ UpdateUser    :  HASI
+ * @ UpdateDate    :  2019/10/15 0015 11:09
+ * @ UpdateRemark  :  修改内容
+ * @ Version       :  1.0
  */
 @RestController
 public class RegLoginController {
@@ -19,13 +22,4 @@ public class RegLoginController {
         return RespBean.error("尚未登录，请登录!");
     }
 
-    @GetMapping("/employee/advanced/hello")
-    public String hello() {
-        return "hello";
-    }
-
-    @GetMapping("/employee/basic/hello")
-    public String basicHello() {
-        return "basicHello";
-    }
 }

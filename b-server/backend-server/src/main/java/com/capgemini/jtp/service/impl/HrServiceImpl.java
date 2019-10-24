@@ -18,12 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @Description: TODO
- * @Classname : HrService
- * @author: Jason Jin
- * @date: 2019/5/19 11:44 PM
- */
+
 @Service
 @Transactional
 public class HrServiceImpl implements HrService {
@@ -115,15 +110,7 @@ public class HrServiceImpl implements HrService {
         return hrMapper.getAllHr(null);
     }
 
-    /**
-     * @Title: getSysUserMap
-     * @Description: 获取系统用户信息Map，键为数据库主键ID，值为对应系统用户对象
-     * @Param: []
-     * @Return: java.util.Map<java.lang.Long,com.capgemini.jtp.entity.Hr>
-     * @Throws:
-     * @Author: Brady
-     * @Date: 2019/6/24 1:18 PM
-     */
+
     @Override
     public Map<Long, Hr> getAllHrMap() {
         Map<Long, Hr> hrMap = new HashMap<Long, Hr>();
@@ -134,12 +121,6 @@ public class HrServiceImpl implements HrService {
         return hrMap;
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/30
-     * @description: 判断是否管理员
-     * @classname: HrServiceImpl
-     */
     @Override
     public int isAdmin(Long hrId) {
         //返回2代表是管理员
@@ -150,12 +131,7 @@ public class HrServiceImpl implements HrService {
         }
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/30
-     * @description: 显示hr列表
-     * @classname: HrServiceImpl
-     */
+
     @Override
     public HrResponseVo listHr(HrSearchVo hrSearchVo){
         HrResponseVo hrResponseVo = new HrResponseVo();

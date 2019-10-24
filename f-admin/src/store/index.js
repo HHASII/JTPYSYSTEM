@@ -28,14 +28,8 @@ export default new Vuex.Store({
       state.user = user;
       window.localStorage.setItem('user', JSON.stringify(user));
     },
-    toggleNFDot(state, newValue){
-      state.nfDot = newValue;
-    },
-    removeValueDotMap(state, key){
-      state.isDotMap.delete(key);
-    }
   },
   actions: {
-  
+
   }
 });

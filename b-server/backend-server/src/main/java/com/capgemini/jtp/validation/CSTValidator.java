@@ -3,12 +3,7 @@ package com.capgemini.jtp.validation;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-/**
- * @ClassName：CSTValidator
- * @Description： CST约束验证器
- * @Author: 陈宇雄
- * @Date：Created in 2019/07/29 11:11
- */
+
 public class CSTValidator implements ConstraintValidator<CSTValidation,String> {
 
     @Override

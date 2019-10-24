@@ -10,12 +10,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 import java.util.Date;
 
-/**
- * @ClassName：ProjectExperienceAddEditVo
- * @Description：
- * @Author: 陈宇雄
- * @Date：Created in 2019/07/21 23:16
- */
+
 @Data
 public class ProjectExperienceAddEditVo {
 

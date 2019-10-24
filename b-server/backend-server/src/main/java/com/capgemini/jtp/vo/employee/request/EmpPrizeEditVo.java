@@ -9,12 +9,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Jason Jin
- * @create: 2019-06-07 22:48
- **/
+
 @Getter
 @Setter
 public class EmpPrizeEditVo {

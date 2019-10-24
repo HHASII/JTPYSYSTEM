@@ -11,25 +11,39 @@ import jdk.net.SocketFlow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Api("JTP员工找回密码类")
+@Api("JTP员工重置密码类")
 @RestController
 @RequestMapping("/passwordForget")
 public class PasswordChangeController {
 
+
+    /**
+     * @ Description   :  密码
+     * @ Author        :  HASI
+     * @ CreateDate    :  14:43
+     * @ UpdateUser    :  HASI
+     * @ UpdateDate    :  14:43
+     * @ UpdateRemark  :  修改内容
+     * @ Version       :  1.0
+     */
     @Autowired
     PasswordService passwordService;
-    /**
-     * @return
-     * @Author 李齐宣
-     * @Description //TODO 发送验证码
-     * @Date 12:39 2019/8/25
-     * @Param
-     */
+
+
+
     @ApiOperation(value = "发送验证码")
     @ResponseBody
     @RequestMapping(value = "/sendVerfiCode", method = RequestMethod.POST)
 
     public RespBean sendVerfiCode(@RequestBody PasswordChangeVo passwordChangeVo) {
+/**
+ * @Description  ：根据until包下的邮箱类，进行邮箱找回。
+ * @author       : HASI
+ * @param        : [passwordChangeVo]
+ * @return       : com.capgemini.jtp.vo.base.RespBean
+ * @exception    :
+ * @date         : 2019/10/15 0015 14:22
+ */
 
         PasswordResponseVo passwordResponseVo = passwordService.sendVerfiCode(passwordChangeVo);
 
@@ -40,18 +54,22 @@ public class PasswordChangeController {
 
     }
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 验证验证码是否正确
-     * @Date 0:11 2019/8/29
-     * @Param
-     * @return
-     */
+
+
+
     @ApiOperation(value = "验证验证码")
     @ResponseBody
     @RequestMapping(value = "/verfiCode", method = RequestMethod.POST)
 
     public RespBean verfiCode(@RequestBody PasswordChangeVo passwordChangeVo) {
+    /**
+     * @Description  ：拿到前端输入的验证码，在service层做逻辑判断，给前端传值进行判断。
+     * @author       : HASI
+     * @param        : [passwordChangeVo]
+     * @return       : com.capgemini.jtp.vo.base.RespBean
+     * @exception    :
+     * @date         : 2019/10/15 0015 14:21
+     */
 
         int stauts = passwordService.verfiCode(passwordChangeVo);
 
@@ -59,7 +77,7 @@ public class PasswordChangeController {
             return RespBean.error("验证码已过期！");
         }
         if (stauts == -1){
-            return RespBean.error("验证码不匹配！");
+            return RespBean.error("验证码输入错误！");
         }
         return RespBean.ok("密码修改成功");
 

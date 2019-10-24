@@ -9,12 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/*   
- * @ClassName: DateUtils  
- * @Description: 时间处理工具类
- * @Author: Brady
- * @Date: 5/30/2019 9:06 PM
- */
+
 public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	
 	public static final String DEFAULT_FORMAT = "yyyy-MM-dd HH:mm:ss";
@@ -44,14 +39,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 			"yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy/MM", 
 			"yyyy.MM.dd", "yyyy.MM.dd HH:mm:ss", "yyyy.MM.dd HH:mm", "yyyy.MM" };
 
-	/**
-	 * 
-	 * @Title: getNowDate   
-	 * @Description: 获取当前时间  
-	 * @param: @return      
-	 * @return: Date      
-	 * @throws
-	 */
+
 	public static Date getNowDate() {
 		return new Date();
 	}
@@ -132,13 +120,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	}
 
 	
-	/** 
-	* @Title：currentMonthFirstDay 
-	* @Description：获取当前月第一天
-	* @param ：@return 
-	* @return ：String 
-	* @throws 
-	*/
+
 	public static String  currentMonthFirstDay() {
 		Calendar   cal_1=Calendar.getInstance();//获取当前日期 
         cal_1.add(Calendar.MONTH, 0);
@@ -148,13 +130,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
 	}
 	
-	/** 
-	* @Title：currentMonthFirstDay 
-	* @Description：获取当前月最后一天
-	* @param ：@return 
-	* @return ：String 
-	* @throws 
-	*/
+
 	public static String  currentMonthLastDay() {
 		 Calendar cale = Calendar.getInstance();   
 	     cale.set(Calendar.DAY_OF_MONTH, cale.getActualMaximum(Calendar.DAY_OF_MONTH));
@@ -162,14 +138,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
          return lastDay;
 	}
 	
-	/** 
-	* @Title：getRemainSecondsOneDay 
-	* @Description：获取一天最后剩余的时间（秒）
-	* @param ：@param currentDate
-	* @param ：@return 
-	* @return ：Integer 
-	* @throws 
-	*/
+
 	public static Integer getRemainSecondsOneDay(Date currentDate) {
         Calendar midnight=Calendar.getInstance();
         midnight.setTime(currentDate);

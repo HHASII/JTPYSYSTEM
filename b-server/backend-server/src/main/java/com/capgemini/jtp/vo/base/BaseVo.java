@@ -8,12 +8,7 @@ import lombok.Setter;
 
 import java.util.Date;
 
-/**
- * @ClassName: BaseVo
- * @Description: 基础vo类
- * @Author: Brady
- * @Date: 5/30/2019 1:45 PM
- */
+
 @Data
 public class BaseVo {
 

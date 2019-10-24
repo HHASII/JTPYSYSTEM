@@ -33,13 +33,10 @@ public class StudyDeclarationController {
     StudyDeclarationService studyDeclarationService;
     @Autowired
     EmpService empService;
-    /**
-     * @Author 李齐宣
-     * @Description //TODO查询学习申报
-     * @Date 10:53 2019/8/24
-     * @Param
-     * @return
-     */
+
+
+
+
     @ApiOperation(value = "查询学习申报")
     @ResponseBody
     @RequestMapping(value = "/listStudyDeclaration", method = RequestMethod.POST)
@@ -54,13 +51,9 @@ public class StudyDeclarationController {
         return RespBean.error("查询失败！");
 
     }
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 修改本月学习申报
-     * @Date 19:02 2019/8/24
-     * @Param
-     * @return
-     */
+
+
+
     //根据员工ID修改本月提交内容
     @ApiOperation(value = "修改本月学习申报")
     @ResponseBody
@@ -81,13 +74,9 @@ public class StudyDeclarationController {
     }
 
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 添加学习申报记录
-     * @Date 19:02 2019/8/24
-     * @Param
-     * @return
-     */
+
+
+
     @ApiOperation(value = "添加学习申报记录")
     @ResponseBody
     @RequestMapping(value = "/addStudyDeclarationRecord", method = RequestMethod.POST)
@@ -120,13 +109,9 @@ public class StudyDeclarationController {
     }
 
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 判断本月是否已提交
-     * @Date 10:51 2019/9/2
-     * @Param
-     * @return
-     */
+
+
+
     @ApiOperation(value = "判断本月是否已提交")
     @ResponseBody
     @RequestMapping(value = "/checkIfDeclare", method = RequestMethod.POST)
@@ -151,13 +136,9 @@ public class StudyDeclarationController {
         return RespBean.ok("申报");
     }
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 删除学习申报记录
-     * @Date 19:02 2019/8/24
-     * @Param
-     * @return
-     */
+
+
+
     @ApiOperation(value = "删除学习申报记录")
     @RequestMapping(value = "/deleteStudyDeclarationRecordById", method = RequestMethod.POST)
     public RespBean deleteEmpById(@RequestBody StudyDeclarationDeleteVo studyDeclarationDeleteVo, HttpServletRequest request) {
@@ -176,26 +157,18 @@ public class StudyDeclarationController {
         return RespBean.error("删除失败!");
     }
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 导出学习申报信息byExcel
-     * @Date 11:38 2019/8/27
-     * @Param
-     * @return
-     */
+
+
+
     @ApiOperation(value = "导出学习申报信息byExcel")
     @RequestMapping(value = "/exportStudyDeclarationRecord", method = RequestMethod.GET)
     public ResponseEntity<byte[]> exportGrow() {
         return studyDeclarationService.exportStudyDeclarationRecord();
     }
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 通过导入Excel导入学习申报记录
-     * @Date 11:38 2019/8/27
-     * @Param
-     * @return
-     */
+
+
+
     @ApiOperation(value = "通过导入Excel导入学习申报记录")
     @RequestMapping(value = "/importGrow", method = RequestMethod.POST)
     public RespBean importGrow(MultipartFile file, HttpServletRequest request) {

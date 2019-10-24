@@ -20,11 +20,10 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("org.sang.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.capgemini.jtp.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
-
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("MYOFFICE--API")

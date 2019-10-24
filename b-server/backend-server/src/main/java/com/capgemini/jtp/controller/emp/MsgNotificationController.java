@@ -23,13 +23,6 @@ public class MsgNotificationController {
     @Autowired
     EmpMsgService empMsgService;
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 列表显示消息
-     * @Date 21:42 2019/8/24
-     * @Param
-     * @return
-     */
     @ApiOperation(value = "查询接收的所有消息")
     @ResponseBody
     @RequestMapping(value = "/listEmpMsg", method = RequestMethod.POST)
@@ -48,13 +41,6 @@ public class MsgNotificationController {
         return RespBean.error("查询失败！");
     }
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 已读消息
-     * @Date 22:39 2019/8/24
-     * @Param
-     * @return
-     */
     @ApiOperation(value = "已读消息")
     @ResponseBody
     @RequestMapping(value = "/deleteEmpMsg", method = RequestMethod.POST)

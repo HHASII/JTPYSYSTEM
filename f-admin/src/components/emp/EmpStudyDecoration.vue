@@ -69,6 +69,7 @@
       style="width: 100%; text-align: center"
       v-loading="tableLoading"
     >
+
       <el-table-column prop="id" type="selection" align="left" width="40"></el-table-column>
       <el-table-column fixed prop="empId" label="员工ID" width="150"></el-table-column>
       <el-table-column fixed prop="chineseName" label="中文名" width="120"></el-table-column>
@@ -125,7 +126,7 @@
         <el-row>
           <el-col :span="8">
             <div class="grid-content bg-purple">
-              <el-form-item label="学号：" prop="empId" label-width="150px">
+              <el-form-item label="工号：" prop="empId" label-width="150px">
                 <el-input v-model="newDecorate.empId"></el-input>
               </el-form-item>
             </div>

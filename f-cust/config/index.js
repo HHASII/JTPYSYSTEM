@@ -1,3 +1,4 @@
+
 'use strict'
 // Template version: 1.2.7
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -12,14 +13,14 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/': {
-        target: 'http://localhost:9999',
+        target: 'http://localhost:8899',
         changeOrigin: true,
         pathRewrite: {
           '^/': ''
         }
       },
       '/ws/*': {
-        target: 'ws://localhost:8082',
+        target: 'ws://localhost:8899',
         ws: true
       }
     },

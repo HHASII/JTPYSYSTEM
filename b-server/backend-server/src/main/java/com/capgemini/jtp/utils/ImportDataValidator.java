@@ -5,12 +5,7 @@ import com.capgemini.jtp.entity.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * @ClassName：ImportDataValidator
- * @Description：
- * @Author: 陈宇雄
- * @Date：Created in 2019/07/31 14:27
- */
+
 public class ImportDataValidator {
 
     public String validateEmployee(Employee employee){

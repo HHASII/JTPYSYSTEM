@@ -7,12 +7,7 @@ import lombok.Data;
 
 import java.util.Date;
 
-/**
- * @ClassName：ProjectExperienceSearchVo
- * @Description：
- * @Author: 陈宇雄
- * @Date：Created in 2019/07/21 15:41
- */
+
 @Data
 public class ProjectExperienceSearchVo extends BaseSearchVo {
     /**

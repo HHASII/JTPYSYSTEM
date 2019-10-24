@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
-// import Home from '@/components/Home'
-// import login from '@/components/pages/login/login'
 import home from '@/components/pages/home'
 import baseInfo from '@/components/pages/aboutPersonal/baseInfo'
 
@@ -11,6 +9,8 @@ import register from '@/components/pages/aboutPersonal/register'
 import declaration from '@/components/pages/aboutDeclaration/declaration'
 import certificateDecoration from '@/components/pages/aboutDeclaration/certificateDecoration'
 import ForgetPassword from '@/components/pages/Security/ForgetPassword'
+// import ws from '@/components/pages/Security/ws'
+
 Vue.use(Router)
 
 export default new Router({
@@ -64,7 +64,7 @@ export default new Router({
         }
       ]
     },
-    
+
   ],
   linkActiveClass: 'is-active'
 })

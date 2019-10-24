@@ -9,12 +9,13 @@
       <el-col>
         <el-button type="success"  @click.native="newDecoration()">新建申报</el-button>
       </el-col>
-      
+
     </div>
-    
+
 
     <el-table :data="decorateList" border style="width: 100%; text-align: center">
       <el-table-column fixed prop="empId" label="员工ID" width="150"></el-table-column>
+      <!--组件使用fixed，会有折叠效果-->
       <el-table-column fixed prop="chineseName" label="中文名" width="120"></el-table-column>
       <el-table-column prop="growingType" label="培训类别" width="200"></el-table-column>
       <el-table-column prop="growingDetail" label="培训详情" width="350"></el-table-column>
@@ -66,7 +67,7 @@
             </div>
           </el-col>
         </el-row>
-        
+
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
@@ -104,7 +105,7 @@
             </div>
           </el-col>
         </el-row>
-       
+
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisibleEdit = false">取 消</el-button>

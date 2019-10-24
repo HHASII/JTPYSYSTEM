@@ -27,13 +27,8 @@ public class StaffExperienceDeclarationController {
     GrowingExperienceService growingExperienceService;
 
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 查询成长经历信息
-     * @Date 14:05 2019/8/26
-     * @Param
-     * @return
-     */
+
+
 
     @ApiOperation(value = "查询成长经历信息")
     @ResponseBody
@@ -46,14 +41,8 @@ public class StaffExperienceDeclarationController {
         return RespBean.error("查询失败！");
     }
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 添加成长经历记录
-     * @Date 14:05 2019/8/26
-     * @Param
-     * @return
-     */
-    @ApiOperation(value= "添加成长经历记录")
+
+    @ApiOperation(value= "添加认证记录")
     @ResponseBody
     @RequestMapping(value = "/addStaffExperience", method = RequestMethod.POST)
     public RespBean addStaffExperience(@Valid @RequestBody GrowingExperienceEditVo growingExperienceEditVo, HttpServletRequest request) {
@@ -70,13 +59,10 @@ public class StaffExperienceDeclarationController {
         }
         return RespBean.error("添加失败!");
     }
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 更新成长记录
-     * @Date 23:29 2019/8/26
-     * @Param
-     * @return
-     */
+
+
+
+
     @ApiOperation(value = "编辑成长信息信息")
     @ResponseBody
     @RequestMapping(value = "/updateStaffExperienceById", method = RequestMethod.POST)

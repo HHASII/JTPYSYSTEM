@@ -9,12 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Jason Jin
- * @create: 2019-06-07 22:59
- **/
+
 @Repository
 public interface EmpPrizeMapper {
 

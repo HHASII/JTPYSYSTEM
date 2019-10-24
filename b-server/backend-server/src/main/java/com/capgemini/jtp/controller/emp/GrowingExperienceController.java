@@ -26,12 +26,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Wang,Chao
- * @create: 2019-07-22 15:44
- **/
+
 
 @Api("JTP员工成长经历类")
 @RestController
@@ -52,12 +47,10 @@ public class GrowingExperienceController {
     @Autowired
     EmpMsgService empMsgService;
 
-    /**
-     * @Description: 新增单条得奖信息
-     * @Classname : GrowingExperienceController
-     * @author: Wang,Chao
-     * @date: 2019/7/23 0:41
-     */
+
+
+
+
     @ApiOperation(value= "添加成长经历记录")
     @ResponseBody
     @RequestMapping(value = "/addExperience", method = RequestMethod.POST)
@@ -77,12 +70,9 @@ public class GrowingExperienceController {
     }
 
 
-    /**
-     * @Description: 根据数据库主键ID更新成长经历信息
-     * @Classname : EmpPrizeController
-     * @author: Wang,Chao
-     * @date: 2019/7/23 0.06
-     */
+
+
+
     @ApiOperation(value = "编辑成长信息信息")
     @ResponseBody
     @RequestMapping(value = "/updateExperienceById", method = RequestMethod.POST)
@@ -105,12 +95,9 @@ public class GrowingExperienceController {
     }
 
 
-    /**
-     * @Description: 根据条件筛选查询得奖信息
-     * @Classname : GrowingExperienceController
-     * @author: Wang,Chao
-     * @date: 2019/6/7 10:51 PM
-     */
+
+
+
     @ApiOperation(value = "查询成长经历信息")
     @ResponseBody
     @RequestMapping(value = "/listExperience", method = RequestMethod.POST)
@@ -123,12 +110,9 @@ public class GrowingExperienceController {
     }
 
 
-    /**
-     * @Description: 根据主键ID删除成长经历信息
-     * @Classname : EmpPrizeController
-     * @author: Wang,Chao
-     * @date: 2019/7/23 1:01
-     */
+
+
+
     @ApiOperation(value = "删除成长信息")
     @ResponseBody
     @RequestMapping(value = "/deleteExperienceById", method = RequestMethod.POST)
@@ -150,24 +134,18 @@ public class GrowingExperienceController {
         return RespBean.error("删除失败!");
     }
 
-    /**
-     * @Description: 导出Excel
-     * @Classname : EmpBasicController
-     * @author: Huabin
-     * @date: 2019/07/26 7:57 PM
-     */
+
+
+
     @ApiOperation(value = "导出用户信息byExcel")
     @RequestMapping(value = "/exportGrow", method = RequestMethod.GET)
     public ResponseEntity<byte[]> exportGrow() {
         return growingExperienceService.exportAllGrows();
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/28
-     * @description: 批量删除培训信息
-     * @classname: GrowingExperienceController
-     */
+
+
+
     @ApiOperation(value = "批量删除培训信息")
     @RequestMapping(value = "/deleteBatchExp", method = RequestMethod.POST)
     public RespBean deleteBatchExp(@RequestBody DeleteBatchVo deleteBatchVo,
@@ -183,12 +161,8 @@ public class GrowingExperienceController {
         return RespBean.error("删除失败！");
     }
 
-    /**
-     * @Description: 导入Excel 添加Grow
-     * @Classname : GrowingExperienceController
-     * @author: Huabin
-     * @date: 2019/7/29 11:30 PM
-     */
+
+
     @ApiOperation(value = "通过导入Excel添加用户")
     @RequestMapping(value = "/importGrow", method = RequestMethod.POST)
     public RespBean importGrow(MultipartFile file, HttpServletRequest request) {

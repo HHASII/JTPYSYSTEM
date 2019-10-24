@@ -7,12 +7,14 @@ import org.springframework.context.annotation.Configuration;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-
 /**
- * @ClassName：ValidatorConfiguration
- * @Description：
- * @Author: 陈宇雄
- * @Date：Created in 2019/07/30 17:17
+ * @ Description   :  自定义注解
+ * @ Author        :  HASI
+ * @ CreateDate    :  2019/10/16 0016 19:32
+ * @ UpdateUser    :  HASI
+ * @ UpdateDate    :  2019/10/16 0016 19:32
+ * @ UpdateRemark  :  修改内容
+ * @ Version       :  1.0
  */
 @Configuration
 public class ValidatorConfiguration {

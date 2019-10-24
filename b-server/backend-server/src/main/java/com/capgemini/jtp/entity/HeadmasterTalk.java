@@ -4,10 +4,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-/**
- * headmaster_talk
- * @author 
- */
+
 @Data
 public class HeadmasterTalk extends BaseEntity {
     /**

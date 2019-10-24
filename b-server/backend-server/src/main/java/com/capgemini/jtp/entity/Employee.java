@@ -4,12 +4,9 @@ import lombok.Data;
 
 import java.util.Date;
 
-/**
- * @Description: TODO
- * @Classname : Employee
- * @author: Jason Jin
- * @date: 2019/5/19 11:47 PM
- */
+
+
+
 @Data
 public class Employee extends BaseEntity {
 

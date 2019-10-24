@@ -39,12 +39,9 @@ public class TeamChangeController {
     @Autowired
     EmpService empService;
     //列表显示
-    /**
-     * @Description: 根据条件筛选查询团队变更记录
-     * @Classname : EmpPrizeController
-     * @author: Lqx
-     * @date: 2019/8/20 10:45 PM
-     */
+
+
+
     @ApiOperation(value = "查询团队变更信息")
     @ResponseBody
     @RequestMapping(value = "/listTeamChange", method = RequestMethod.POST)
@@ -58,13 +55,9 @@ public class TeamChangeController {
 
     }
 
-    /**
-     * @Author 李齐宣
-     * @Description //团队变更记录删除信息
-     * @Date 22:58 22:58
-     * @Param
-     * @return
-     */
+
+
+
     @ApiOperation(value = "团队变更记录删除信息")
     @ResponseBody
     @RequestMapping(value = "/deleteTeamChangeLogById", method = RequestMethod.POST)
@@ -87,12 +80,9 @@ public class TeamChangeController {
         return RespBean.error("删除失败!");
     }
 
-    /**
-     * @author: 李齐宣
-     * @date: 2019/08/21
-     * @description:批量删除团队变更记录
-     * @classname: EmpPrizeController
-     */
+
+
+
     @ApiOperation(value = "批量删除团队变更记录")
     @RequestMapping(value = "/deleteBatchTeamChangeLog", method = RequestMethod.POST)
     public RespBean deleteBatchTeamChangeLog(@RequestBody DeleteBatchVo deleteBatchVo, HttpServletRequest request) {
@@ -110,13 +100,8 @@ public class TeamChangeController {
     }
 
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 团队变更功能 新增一条团队变更记录
-     * @Date 20:28 2019/8/23
-     * @Param
-     * @return
-     */
+
+
     @ApiOperation(value = "新增一条团队变更记录")
     @ResponseBody
     @RequestMapping(value = "/addTeamChangeLog", method = RequestMethod.POST)
@@ -143,13 +128,8 @@ public class TeamChangeController {
     }
 
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 编辑团队变更记录
-     * @Date 19:03 2019/8/24
-     * @Param
-     * @return
-     */
+
+
     @ApiOperation(value = "编辑团队变更记录")
     @ResponseBody
     @RequestMapping(value = "/updateTeamChangeLog", method = RequestMethod.POST)
@@ -172,26 +152,18 @@ public class TeamChangeController {
         return RespBean.error("更新失败!");
     }
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO EXECL导出
-     * @Date 17:18 2019/8/24
-     * @Param
-     * @return
-     */
+
+
+
     @ApiOperation(value = "导出团第变更信息byExcel")
     @RequestMapping(value = "/exportChangeTeamRecord", method = RequestMethod.GET)
     public ResponseEntity<byte[]> exportGrow() {
         return teamChangeService.exportTeamChangeRecord();
     }
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 通过导入Excel团队变更记录
-     * @Date 11:40 2019/8/27
-     * @Param
-     * @return
-     */
+
+
+
     @ApiOperation(value = "通过导入Excel团队变更记录")
     @RequestMapping(value = "/importChangeTeamLog", method = RequestMethod.POST)
     public RespBean importPro(MultipartFile file, HttpServletRequest request) {

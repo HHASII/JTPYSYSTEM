@@ -2,12 +2,7 @@ package com.capgemini.jtp.vo.employee.request;
 
 import lombok.Data;
 
-/**
- * @ClassName：HrEditVo
- * @Description：
- * @Author: 陈宇雄
- * @Date：Created in 2019/07/30 19:21
- */
+
 @Data
 public class HrEditVo {
 

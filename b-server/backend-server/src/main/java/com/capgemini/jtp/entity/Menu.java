@@ -6,12 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * @Description: TODO
- * @Classname : Menu
- * @author: Jason Jin
- * @date: 2019/5/19 11:48 PM
- */
+
 public class Menu implements Serializable {
 
     private Long id;

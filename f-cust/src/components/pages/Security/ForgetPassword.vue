@@ -42,8 +42,9 @@
       >{{content}}</el-button>
       <br />
       <el-button type="primary" size="mini" style="width: 100%" @click="submitClick">修改密码</el-button>
-      <br><br>
-      <a href="/">返回首页</a>
+      <br>
+      <el-button type="primary" size="mini" style="width: 30%;margin: auto;background-color:pink; border: white" @click="gorefresh">返回首页</el-button>
+      <br />
     </el-form-item>
   </el-form>
 </template>
@@ -72,6 +73,9 @@ export default {
     };
   },
   methods: {
+    gorefresh(){
+      this.$router.push({path: '/'});
+    },
     sendCode: function() {
       this.postRequest("/passwordForget/sendVerfiCode", this.loginForm).then(
         msg => {
@@ -83,7 +87,7 @@ export default {
           }
         }
       );
-      
+
     },
 
     submitClick: function() {
@@ -92,7 +96,7 @@ export default {
           this.loading = false;
           if (msg && msg.status == 200) {
             console.log(msg);
-            alert("密码修改成功！");
+            this.$message('注册成功');
           }
         }
       );
@@ -102,17 +106,17 @@ export default {
         this.totalTime--;
         this.content = this.totalTime + "s后重新发送";
         if(this.totalTime>0){
-            
+
             this.checked=true
         }
         if(this.totalTime<0){
             window.clearInterval(clock);
             this.checked=false;
-            this.totalTime = 60;
+            this.totalTime = 30;
             this.content="重新发送验证码";
         }
       }, 1000);
-      
+
     }
   }
 };
@@ -122,7 +126,7 @@ export default {
 .login-container {
   border-radius: 15px;
   background-clip: padding-box;
-  margin: 180px auto;
+  margin: 50px auto;
   width: 350px;
   height: 500px;
   padding: 35px 35px 15px 35px;

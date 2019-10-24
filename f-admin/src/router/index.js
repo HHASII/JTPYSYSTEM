@@ -29,7 +29,6 @@ export default new Router({
       },
       children: [
         {
-          // 只要定位到home下，直接重定向到emp/basic
           path:"/home",
           redirect:"/emp/basic",
         },

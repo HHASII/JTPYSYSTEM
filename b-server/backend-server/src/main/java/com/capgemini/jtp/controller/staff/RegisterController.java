@@ -40,13 +40,9 @@ public class RegisterController {
 
     }
 
-    /**
-     * @Author 李齐宣
-     * @Description //TODO 注册
-     * @Date 0:11 2019/8/29
-     * @Param
-     * @return
-     */
+
+
+
     @ApiOperation(value = "注册")
     @ResponseBody
     @RequestMapping(value = "/register", method = RequestMethod.POST)

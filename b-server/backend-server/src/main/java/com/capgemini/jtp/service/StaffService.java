@@ -1,7 +1,7 @@
 package com.capgemini.jtp.service;
 
-import com.capgemini.jtp.entity.Employee;
+import com.capgemini.jtp.vo.employee.response.EmpWithUserfaceVo;
 
 public interface StaffService {
-    Employee getEmpByEmpId(Integer empId);
+    EmpWithUserfaceVo resourceByEmpId(Integer empId);
 }

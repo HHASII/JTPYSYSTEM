@@ -6,12 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @Description: TODO
- * @Classname : RoleMapper
- * @author: Jason Jin
- * @date: 2019/5/19 11:45 PM
- */
+
 @Repository
 public interface RoleMapper {
 

@@ -22,12 +22,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @ClassName: jtpsystem
- * @Description:
- * @Author: Huabin
- * @Date: 2019/07/21 18:17
- */
+
 @Service
 @Slf4j
 public class HeadmasterTalkServiceImpl implements HeadmasterTalkService {
@@ -37,12 +32,7 @@ public class HeadmasterTalkServiceImpl implements HeadmasterTalkService {
     @Autowired
     HrService hrService;
 
-    /**
-     * @Description: 查询校长谈话信息
-     * @Classname : HeadmasterTalkService
-     * @author: Huabin
-     * @date: 2019/07/21 18:27
-     */
+
     @Override
     public HeadmasterTalkResponseVo listTalk(HeadmasterTalkSearchVo headmasterTalkSearchVo) {
         //获取所有系统用户信息的Map
@@ -70,12 +60,6 @@ public class HeadmasterTalkServiceImpl implements HeadmasterTalkService {
     }
 
 
-/**
- * @Description: 根据数据库主键ID修改谈话信息
- * @Classname : HeadmasterTalkService
- * @author: Huabin
- * @date: 2019/07/21 18:27
- */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer updateTalkById(HeadmasterTalkEditVo headmasterTalkEditVo) {
@@ -89,12 +73,7 @@ public class HeadmasterTalkServiceImpl implements HeadmasterTalkService {
         return headmasterTalkMapper.updateTalkById(headmasterTalk);
     }
 
-    /**
-     * @Description: 新增单条谈话信息
-     * @Classname : HeadmasterTalkService
-     * @author: Huabin
-     * @date: 2019/07/21 18:27
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer addTalk(HeadmasterTalkEditVo headmasterTalkEditVo) {
@@ -106,12 +85,7 @@ public class HeadmasterTalkServiceImpl implements HeadmasterTalkService {
         return headmasterTalkMapper.insertTalk(headmasterTalk);
     }
 
-    /**
-     * @Description: 根据数据库主键ID删除获奖信息
-     * @Classname : HeadmasterTalkService
-     * @author: Huabin
-     * @date: 2019/07/21 22:15
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer deleteTalkById(HeadmasterTalkDeleteVo headmasterTalkDeleteVo) {
@@ -126,15 +100,7 @@ public class HeadmasterTalkServiceImpl implements HeadmasterTalkService {
         return headmasterTalkMapper.deleteTalkById(headmasterTalk);
     }
 
-    /**
-     * @Title: deleteTalkInfoByEmpId
-     * @Description: 根据员工表主键ID删除员工谈话信息表中对应记录
-     * @Param: [empId]
-     * @Return: void
-     * @Throws:
-     * @Author: Huabin
-     * @Date: 2019/07/21 22:15
-     */
+
     @Override
     public Integer deleteTalkInfoByEmpId(Employee employee) {
         HeadmasterTalk headmasterTalk = new HeadmasterTalk();
@@ -144,15 +110,7 @@ public class HeadmasterTalkServiceImpl implements HeadmasterTalkService {
         return headmasterTalkMapper.deleteTalkInfoByEmpId(headmasterTalk);
     }
 
-    /**
-     * @Title: importEmpsFromExcel
-     * @Description: 导出Excel中的员工校长谈话信息
-     * @Param: [List<Employee>]
-     * @Return: java.lang.Integer
-     * @Throws:
-     * @Author: Huabin
-     * @Date: 7/25/2019 8:09 PM
-     */
+
     @Override
     public ResponseEntity<byte[]> exportAllTalks() {
         List<HeadmasterTalkVo> headmasterTalkVoList = null;
@@ -170,12 +128,7 @@ public class HeadmasterTalkServiceImpl implements HeadmasterTalkService {
         return PoiUtils.exportTalk2Excel(headmasterTalkVoList);
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/28
-     * @description: 批量删除HeadmasterTalk
-     * @classname: HeadmasterTalkServiceImpl
-     */
+
     @Override
     public Integer deleteTalkBatch(DeleteBatchVo deleteBatchVo,
                                    Long operationUserId){
@@ -192,15 +145,7 @@ public class HeadmasterTalkServiceImpl implements HeadmasterTalkService {
         return headmasterTalkMapper.deleteTalkBatch(headmasterTalkList);
     }
 
-    /**
-     * @Title: importTalksFromExcel
-     * @Description: 导入Excel中的谈话信息
-     * @Param: [List<Employee>]
-     * @Return: java.lang.Integer
-     * @Throws:
-     * @Author: Brady
-     * @Date: 6/4/2019 5:31 PM
-     */
+
     @Override
     public Integer importTalksFromExcel(List<HeadmasterTalk> headmasterTalkList) {
         return headmasterTalkMapper.insertTalkBatch(headmasterTalkList);

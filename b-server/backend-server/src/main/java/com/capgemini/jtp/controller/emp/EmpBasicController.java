@@ -25,12 +25,14 @@ import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-
 /**
- * @Description: TODO
- * @Classname : EmpBasicController
- * @author: Jason Jin
- * @date: 2019/5/19 11:46 PM
+ * @ Description   :  
+ * @ Author        :  HASI
+ * @ CreateDate    :  2019/10/15 0015 1:33
+ * @ UpdateUser    :  HASI
+ * @ UpdateDate    :  2019/10/15 0015 1:33
+ * @ UpdateRemark  :  修改内容
+ * @ Version       :  1.0
  */
 @Api("JTP员工信息基本类")
 @RestController
@@ -49,15 +51,7 @@ public class EmpBasicController {
     @Autowired
     TemplateEngine templateEngine;
 
-    /**
-     * @Title: addEmp
-     * @Description: 新增单条员工信息
-     * @Param: [employeeVo]
-     * @Return: com.capgemini.jtp.vo.base.RespBean
-     * @Throws:
-     * @Author: Brady
-     * @Date: 5/30/2019 11:56 AM
-     */
+
     @ApiOperation(value = "添加JTP员工")
     @ResponseBody
     @RequestMapping(value = "/addEmp", method = RequestMethod.POST)
@@ -79,15 +73,7 @@ public class EmpBasicController {
         return RespBean.error("添加失败!");
     }
 
-    /**
-     * @Title: updateEmp
-     * @Description: 根据数据库主键ID更新员工信息
-     * @Param: [employeeVo]
-     * @Return: com.capgemini.jtp.vo.base.RespBean
-     * @Throws:
-     * @Author: Brady
-     * @Date: 5/30/2019 11:57 AM
-     */
+
     @ApiOperation(value = "编辑JTP员工信息")
     @ResponseBody
     @RequestMapping(value = "/updateEmpById", method = RequestMethod.POST)
@@ -111,15 +97,6 @@ public class EmpBasicController {
         return RespBean.error("更新失败!");
     }
 
-    /**
-     * @Title: listEmp
-     * @Description: 根据条件筛选查询所有的员工信息
-     * @Param: [employeeSearchVo]
-     * @Return: com.capgemini.jtp.vo.base.RespBean
-     * @Throws:
-     * @Author: Brady
-     * @Date: 5/30/2019 6:27 PM
-     */
     @ApiOperation(value = "查询JTP员工")
     @ResponseBody
     @RequestMapping(value = "/listEmp", method = RequestMethod.POST)
@@ -131,15 +108,6 @@ public class EmpBasicController {
         return RespBean.error("查询失败！");
     }
 
-    /**
-     * @Title: listEmpVo
-     * @Description: 所有的员工的工号及姓名
-     * @Param:
-     * @Return: com.capgemini.jtp.vo.base.RespBean
-     * @Throws:
-     * @Author: Jason Jin
-     * @Date: 6/23/2019 6:27 PM
-     */
     @ApiOperation(value = "JTP员工List")
     @ResponseBody
     @RequestMapping(value = "/listEmpVo", method = RequestMethod.POST)
@@ -151,15 +119,7 @@ public class EmpBasicController {
         return RespBean.error("查询失败！");
     }
 
-    /**
-     * @Title: deleteEmpById
-     * @Description: 根据主键ID删除员工信息
-     * @Param: [baseVo]
-     * @Return: com.capgemini.jtp.vo.base.RespBean
-     * @Throws:
-     * @Author: Brady
-     * @Date: 5/31/2019 12:44 AM
-     */
+
     @ApiOperation(value = "删除JTP员工")
     @ResponseBody
     @RequestMapping(value = "/deleteEmpById", method = RequestMethod.POST)
@@ -181,24 +141,13 @@ public class EmpBasicController {
         return RespBean.error("删除失败!");
     }
 
-    /**
-     * @Description: 导出Excel
-     * @Classname : EmpBasicController
-     * @author: Jason Jin
-     * @date: 2019/6/1 11:30 PM
-     */
     @ApiOperation(value = "导出用户信息byExcel")
     @RequestMapping(value = "/exportEmp", method = RequestMethod.GET)
     public ResponseEntity<byte[]> exportEmp() {
         return empService.exportAllEmployees();
     }
 
-    /**
-     * @Description: 导入Excel 添加Emp
-     * @Classname : EmpBasicController
-     * @author: Jason Jin
-     * @date: 2019/6/1 11:30 PM
-     */
+
     @ApiOperation(value = "通过导入Excel添加用户")
     @RequestMapping(value = "/importEmp", method = RequestMethod.POST)
     public RespBean importEmp(MultipartFile file, HttpServletRequest request){
@@ -234,12 +183,7 @@ public class EmpBasicController {
         return RespBean.error("导入失败!");
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/28
-     * @description: 批量删除员工信息
-     * @classname: EmpBasicController
-     */
+
     @ApiOperation(value = "批量删除员工信息")
     @RequestMapping(value = "/deleteBatchEmp", method = RequestMethod.POST)
     public RespBean deleteBatchExp(@RequestBody DeleteBatchVo deleteBatchVo,

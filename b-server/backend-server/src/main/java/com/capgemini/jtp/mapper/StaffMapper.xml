@@ -4,4 +4,38 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.capgemini.jtp.mapper.StaffMapper">
 
+    <resultMap id="BaseResultMap" type="com.capgemini.jtp.vo.employee.response.EmpWithUserfaceVo">
+        <result column="empId" jdbcType="BIGINT" property="empId" />
+        <result column="chineseName" jdbcType="VARCHAR" property="chineseName" />
+        <result column="gender" jdbcType="VARCHAR" property="gender" />
+        <result column="grade" jdbcType="VARCHAR" property="grade" />
+        <result column="hireDate" jdbcType="DATE" property="hireDate" />
+        <result column="department" jdbcType="VARCHAR" property="department" />
+        <result column="legalEntity" jdbcType="VARCHAR" property="legalEntity" />
+        <result column="workingLocation" jdbcType="VARCHAR" property="workingLocation" />
+        <result column="teachingStartDate" jdbcType="DATE" property="teachingStartDate" />
+        <result column="phone" jdbcType="VARCHAR" property="phone" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+        <result column="school" jdbcType="VARCHAR" property="school" />
+        <result column="major" jdbcType="VARCHAR" property="major" />
+        <result column="degree" jdbcType="VARCHAR" property="degree" />
+        <result column="graduationYear" jdbcType="VARCHAR" property="graduationYear" />
+        <result column="cst" jdbcType="VARCHAR" property="cst" />
+        <result column="subCst" jdbcType="VARCHAR" property="subCst" />
+        <result column="skillGroup" jdbcType="VARCHAR" property="skillGroup" />
+        <result column="skillSets" jdbcType="VARCHAR" property="skillSets" />
+        <result column="leaveDate" jdbcType="DATE" property="leaveDate" />
+        <result column="terminationType" jdbcType="VARCHAR" property="terminationType" />
+        <result column="terminationReason" jdbcType="VARCHAR" property="terminationReason" />
+        <result column="exitComments" jdbcType="VARCHAR" property="exitComments" />
+        <result column="leavingAccount" jdbcType="VARCHAR" property="leavingAccount" />
+        <result column="formerId" jdbcType="VARCHAR" property="formerId" />
+        <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+        <result column="userface" jdbcType="VARCHAR" property="userface" />
+
+    </resultMap>
+
+    <select id="resourceByEmpId" resultMap="BaseResultMap">
+        SELECT e.*,hr.userface FROM employee as e left join hr  on hr.id=e.empId where empId = #{empId};
+    </select>
 </mapper>

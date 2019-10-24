@@ -10,12 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * @Description: TODO
- * @Classname : Hr
- * @author: Jason Jin
- * @date: 2019/5/19 11:47 PM
- */
+
 @Data
 public class Hr implements UserDetails {
 

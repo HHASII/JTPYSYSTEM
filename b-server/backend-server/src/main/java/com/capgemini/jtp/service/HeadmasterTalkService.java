@@ -8,12 +8,6 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Huabin
- * @create: 2019-07-21 17:57
- **/
 
 public interface HeadmasterTalkService {
     public HeadmasterTalkResponseVo listTalk(HeadmasterTalkSearchVo headmasterTalkSearchVo);

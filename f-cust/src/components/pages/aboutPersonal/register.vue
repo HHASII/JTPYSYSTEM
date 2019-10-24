@@ -32,8 +32,7 @@
     <el-form-item prop="checkPass">
       <el-input type="text" v-model="loginForm.veriCode" auto-complete="off" placeholder="验证码"></el-input>
     </el-form-item>
-    <!-- <el-checkbox class="login_remember" v-model="checked"
-    label-position="left">REMEMBER</el-checkbox>-->
+
     <br />
     <el-form-item style="width: 100%">
       <el-button
@@ -45,8 +44,10 @@
       >{{content}}</el-button>
       <br />
       <el-button type="primary" size="mini" style="width: 100%" @click="submitClick">注册</el-button>
+
+      <el-button type="primary" size="mini" style="width: 30%;margin: auto;background-color:pink; border: white" @click="gorefresh">返回首页</el-button>
       <br />
-      <a href="/">返回首页</a>
+      <!--<a href="/">返回首页</a>-->
     </el-form-item>
   </el-form>
 </template>
@@ -54,6 +55,11 @@
 
 
 <script>
+  /*
+      author: HASI
+      time: 2019/10/15 0015 10:35
+      function:.postRequest("/register/sendVerfiCode"
+  */
 export default {
   name: "register",
   data() {
@@ -77,6 +83,9 @@ export default {
     };
   },
   methods: {
+    gorefresh(){
+      this.$router.push({path: '/'});
+    },
     sendCode: function() {
       this.postRequest("/register/sendVerfiCode", this.loginForm).then(
         msg => {
@@ -96,7 +105,7 @@ export default {
           this.loading = false;
           if (msg && msg.status == 200) {
             console.log(msg);
-            alert("注册成功");
+            this.$message('注册成功');
           }
         }
       );
@@ -124,7 +133,7 @@ export default {
 .login-container {
   border-radius: 15px;
   background-clip: padding-box;
-  margin: 180px auto;
+  margin: 50px auto;
   width: 350px;
   height: 500px;
   padding: 35px 35px 15px 35px;

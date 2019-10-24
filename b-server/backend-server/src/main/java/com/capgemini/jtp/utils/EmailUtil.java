@@ -39,11 +39,11 @@ public class EmailUtil {
             // 设置邮件内容
             msg.setText(content);
             // 设置发件人
-            msg.setFrom(new InternetAddress("o5ko5ko5k@126.com"));
+            msg.setFrom(new InternetAddress("CENTERTREE@126.com"));
 
             Transport transport = session.getTransport();
             // 连接邮件服务器
-            transport.connect("o5ko5ko5k@126.com", "05961xty");
+            transport.connect("CENTERTREE@126.com", "123CENTERTREE");
 
             // 发送邮件
             transport.sendMessage(msg, new Address[] { new InternetAddress(address) });

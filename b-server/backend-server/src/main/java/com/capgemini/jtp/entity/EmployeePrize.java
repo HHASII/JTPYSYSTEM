@@ -9,12 +9,7 @@ import lombok.ToString;
 
 import java.util.Date;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Jason Jin
- * @create: 2019-06-07 22:54
- **/
+
 
 @Data
 public class EmployeePrize extends BaseEntity {

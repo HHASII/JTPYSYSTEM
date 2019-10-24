@@ -1,8 +1,6 @@
 package com.capgemini.jtp.service;
 
-import com.capgemini.jtp.vo.employee.request.PasswordChangeVo;
 import com.capgemini.jtp.vo.employee.request.RegisterInfoVo;
-import com.capgemini.jtp.vo.employee.response.PasswordResponseVo;
 import com.capgemini.jtp.vo.employee.response.RegisterResponseVo;
 
 public interface RegisterService {

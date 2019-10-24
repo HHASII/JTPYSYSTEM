@@ -9,12 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Wang chao
- * @create: 2019-07-21 22:59
- **/
 
 /**
  * GrowingExperienceMapper继承基类

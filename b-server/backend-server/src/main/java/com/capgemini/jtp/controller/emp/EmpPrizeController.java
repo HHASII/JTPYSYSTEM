@@ -23,13 +23,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Jason Jin
- * @create: 2019-06-02 13:20
- **/
-
 @Api("JTP员工获奖类")
 @RestController
 @RequestMapping("/employee/prize")
@@ -44,12 +37,6 @@ public class EmpPrizeController {
     @Autowired
     TemplateEngine templateEngine;
 
-    /**
-     * @Description: 新增单条得奖信息
-     * @Classname : EmpPrizeController
-     * @author: Jason Jin
-     * @date: 2019/6/7 10:51 PM
-     */
     @ApiOperation(value = "添加得奖记录")
     @ResponseBody
     @RequestMapping(value = "/addPrize", method = RequestMethod.POST)
@@ -69,12 +56,6 @@ public class EmpPrizeController {
     }
 
 
-    /**
-     * @Description: 根据数据库主键ID更新得奖信息
-     * @Classname : EmpPrizeController
-     * @author: Jason Jin
-     * @date: 2019/6/7 10:51 PM
-     */
     @ApiOperation(value = "编辑得奖信息")
     @ResponseBody
     @RequestMapping(value = "/updateEmpById", method = RequestMethod.POST)
@@ -97,12 +78,7 @@ public class EmpPrizeController {
     }
 
     
-    /**
-     * @Description: 根据条件筛选查询得奖信息
-     * @Classname : EmpPrizeController
-     * @author: Jason Jin
-     * @date: 2019/6/7 10:51 PM
-     */
+
     @ApiOperation(value = "查询得奖信息")
     @ResponseBody
     @RequestMapping(value = "/listPrize", method = RequestMethod.POST)
@@ -115,12 +91,6 @@ public class EmpPrizeController {
     }
 
 
-    /**
-     * @Description: 根据主键ID删除得奖信息
-     * @Classname : EmpPrizeController
-     * @author: Jason Jin
-     * @date: 2019/6/7 10:51 PM
-     */
     @ApiOperation(value = "删除得奖信息")
     @ResponseBody
     @RequestMapping(value = "/deletePrizeById", method = RequestMethod.POST)
@@ -142,24 +112,16 @@ public class EmpPrizeController {
         return RespBean.error("删除失败!");
     }
 
-    /**
-     * @Description: 导出Excel
-     * @Classname : EmpBasicController
-     * @author: Huabin
-     * @date: 2019/07/25 7:57 PM
-     */
+
     @ApiOperation(value = "导出用户信息byExcel")
     @RequestMapping(value = "/exportPrize", method = RequestMethod.GET)
     public ResponseEntity<byte[]> exportPrize() {
         return empPrizeService.exportAllPrizes();
     }
 
-    /**
-     * @author: 陈宇雄
-     * @date: 2019/07/28
-     * @description:批量删除获奖信息
-     * @classname: EmpPrizeController
-     */
+
+
+
     @ApiOperation(value = "批量删除获奖信息")
     @RequestMapping(value = "/deleteBatchPrize", method = RequestMethod.POST)
     public RespBean deleteBatchPrize(@RequestBody DeleteBatchVo deleteBatchVo, HttpServletRequest request) {
@@ -174,12 +136,7 @@ public class EmpPrizeController {
         return RespBean.error("删除失败！");
     }
 
-    /**
-     * @Description: 导入Excel 添加Prize
-     * @Classname : EmpPrizeController
-     * @author: Huabin
-     * @date: 2019/7/29 11:30 PM
-     */
+
     @ApiOperation(value = "通过导入Excel添加用户")
     @RequestMapping(value = "/importPrize", method = RequestMethod.POST)
     public RespBean importPrize(MultipartFile file, HttpServletRequest request) {

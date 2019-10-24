@@ -62,12 +62,7 @@ public class TeamChangeServiceImpl implements TeamChangeService {
     }
 
 
-    /**
-     * @Description: 根据数据库主键ID删除获奖信息
-     * @Classname : EmpPrizeService
-     * @author: Jason Jin
-     * @date: 2019/8/21 10:13 AM
-     */
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Integer deleteTeamChangeLogById(TeamChangeLogDeleteVo teamChangeLogDeleteVo) {
@@ -85,12 +80,7 @@ public class TeamChangeServiceImpl implements TeamChangeService {
 
 
 
-    /**
-     * @Description: 批量删除转团队变更记录
-     * @Classname : EmpPrizeService
-     * @author: Jason Jin
-     * @date: 2019/8/21 10:13 AM
-     */
+
     @Override
     public Integer deleteTeamChangeLogBatch(DeleteBatchVo deleteBatchVo, Long operationUserId) {
         String[] list = deleteBatchVo.getDeleteList().split(",");

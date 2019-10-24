@@ -11,12 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 
-/**
- * @Description: 这是一个只要登录就能访问的Controller 主要用来获取一些配置信息
- * @Classname : ConfigController
- * @author: Jason Jin
- * @date: 2019/5/19 11:45 PM
- */
+
+
+
 @RestController
 @RequestMapping("/config")
 public class ConfigController {

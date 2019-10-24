@@ -8,12 +8,7 @@ import lombok.Setter;
 
 import java.util.Date;
 
-/**
- * @ClassName: EmployeeSearchVo
- * @Description: 员工搜索vo类
- * @Author: Brady
- * @Date: 5/30/2019 4:46 PM
- */
+
 @Getter
 @Setter
 public class EmployeeSearchVo extends BaseSearchVo {

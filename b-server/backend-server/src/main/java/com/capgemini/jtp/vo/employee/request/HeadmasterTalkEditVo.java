@@ -6,12 +6,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotNull;
 
 
-/**
- * @program: jtpsystem
- * @description:
- * @author: Huabin
- * @create: 2019-06-02 14:08
- **/
+
 @Getter
 @Setter
 public class HeadmasterTalkEditVo {

@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div>
     <el-header class="elHeader">
       <span class="home_title">JTP MANGEMENT SYSTEM</span>

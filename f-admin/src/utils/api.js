@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {Message} from 'element-ui'
 import router from '@/router'
+
 axios.interceptors.request.use(config => {
   return config;
 }, err => {
@@ -27,7 +28,7 @@ axios.interceptors.response.use(data => {
   } else {
     if (err.response.data.msg) {
       Message.error({message: err.response.data.msg});
-    }else{
+    } else {
       Message.error({message: '未知错误!'});
     }
   }
@@ -59,8 +60,8 @@ export const postRequest = (url, params) => {
     method: 'post',
     url: `${base}${url}`,
     contentType: 'application/json; charset=UTF-8',
-    async:false,
-    dataType:'json',
+    async: false,
+    dataType: 'json',
     data: JSON.stringify(params),
     headers: {
       'Content-Type': 'application/json; charset=UTF-8'

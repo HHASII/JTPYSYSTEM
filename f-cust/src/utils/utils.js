@@ -1,7 +1,7 @@
 import {getRequest} from './api'
 import {Message} from 'element-ui'
 
-export const isNotNullORBlank = (...args)=> {
+export const isNotNullORBlank = (...args) => {
   for (var i = 0; i < args.length; i++) {
     var argument = args[i];
     if (argument == null || argument == '' || argument == undefined) {
@@ -11,11 +11,11 @@ export const isNotNullORBlank = (...args)=> {
   }
   return true;
 }
-export const initMenu = (router, store)=> {
+export const initMenu = (router, store) => {
   if (store.state.routes.length > 0) {
     return;
   }
-  getRequest("/config/sysmenu").then(resp=> {
+  getRequest("/config/sysmenu").then(resp => {
     if (resp && resp.status == 200) {
       var arr = []
       arr.push(resp.data[0]);
@@ -26,9 +26,9 @@ export const initMenu = (router, store)=> {
     }
   })
 }
-export const formatRoutes = (routes)=> {
+export const formatRoutes = (routes) => {
   let fmRoutes = [];
-  routes.forEach(router=> {
+  routes.forEach(router => {
     let {
       path,
       component,
@@ -42,7 +42,7 @@ export const formatRoutes = (routes)=> {
     }
     let fmRouter = {
       path: path,
-      component(resolve){
+      component(resolve) {
         if (component.startsWith('home')) {
           require(['../components/pages/' + component + '.vue'], resolve)
         } else if (component.startsWith('aboutPersonal')) {

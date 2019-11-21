@@ -21,21 +21,19 @@ export default new Vuex.Store({
     nfDot: false
   },
   mutations: {
-    initMenu(state, menus){
+    initMenu(state, menus) {
       state.routes = menus;
     },
-    login(state, user){
+    login(state, user) {
       state.user = user;
       window.localStorage.setItem('user', JSON.stringify(user));
     },
-    toggleNFDot(state, newValue){
+    toggleNFDot(state, newValue) {
       state.nfDot = newValue;
     },
-    removeValueDotMap(state, key){
+    removeValueDotMap(state, key) {
       state.isDotMap.delete(key);
     }
   },
-  actions: {
-  
-  }
+  actions: {}
 });

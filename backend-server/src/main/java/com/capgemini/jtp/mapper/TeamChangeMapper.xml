@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.jtp.mapper.TeamChangeMapper">
+
+    <select id="listTeamChangeLog" resultType="com.capgemini.jtp.entity.TeamChangeLog">
+        select
+        b.id,chineseName,b.empId,NowCst,NowSubCst,NewCst,NewSubCst,b.createUser,b.createTime,b.updateUser,b.updateTime,b.effectiveDate
+        from employee a RIGHT JOIN teamchangelog b on a.empId = b.empId and a.isDeleted=0
+        where b.isDeleted = '0'
+        <if test="TeamChangeLogSearch.search != null  and TeamChangeLogSearch.search !=''">
+            and (
+            `chineseName` like concat(concat('%',#{TeamChangeLogSearch.search,jdbcType=VARCHAR}),'%')
+            )
+
+        </if>
+        <if test="TeamChangeLogSearch.empId != null">
+            and b.empId = #{TeamChangeLogSearch.empId,jdbcType=BIGINT}
+        </if>
+        <if test="TeamChangeLogSearch.start != null and TeamChangeLogSearch.size != null">
+            order by `id` limit #{TeamChangeLogSearch.start},#{TeamChangeLogSearch.size}
+        </if>
+    </select>
+
+    <select id="getTeamChangeName" resultType="String">
+        select `chineseName` from employee
+        where `isDeleted` = '0' and `empId` = #{empId}
+    </select>
+
+    <select id="countTeamChangeName" resultType="Long">
+        select count(*)
+        from employee a RIGHT JOIN teamchangelog b on a.empId = b.empId and a.isDeleted=0
+        where b.isDeleted = '0'
+        <if test="TeamChangeLogSearch.search != null  and TeamChangeLogSearch.search !=''">
+            and `chineseName` like concat(concat('%',#{TeamChangeLogSearch.search,jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="TeamChangeLogSearch.empId != null">
+            and b.empId = #{TeamChangeLogSearch.empId,jdbcType=BIGINT}
+        </if>
+    </select>
+
+    <update id="deleteTeamChangeLogById" parameterType="com.capgemini.jtp.entity.TeamChangeLog">
+        update teamchangelog
+        set `isDeleted` = '1'
+
+        where id = #{TeamChangeLog.id,jdbcType=BIGINT}
+    </update>
+
+    <update id="deleteTeamChangeLogByEmpId" parameterType="com.capgemini.jtp.entity.TeamChangeLog">
+        update teamchangelog
+        set `isDeleted` = '1', `updateUser` = #{TeamChangeLog.updateUser,jdbcType=BIGINT}, `updateTime` =
+        #{TeamChangeLog.updateTime}
+        where empId = #{TeamChangeLog.empId,jdbcType=BIGINT}
+    </update>
+
+    <select id="getCreateUser" resultType="Long">
+        select createUser from TeamChangeLog where id = #{id}
+    </select>
+
+    <update id="deleteTeamChangeLogBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update teamchangelog
+            <set>
+                `isDeleted` = '1',
+                `updateUser` = #{item.updateUser,jdbcType=BIGINT},
+                `updateTime` = #{item.updateTime}
+            </set>
+            <where>
+                id = #{item.id,jdbcType=BIGINT}
+            </where>
+        </foreach>
+    </update>
+
+    <insert id="insertTeamChangeLog" parameterType="com.capgemini.jtp.entity.TeamChangeLog">
+        insert into teamchangelog (`empId`, `nowCst`,`nowSubCst`,`newCst`,`newSubCst`, `createUser`, `createTime`,
+        `updateUser`, `updateTime`,`effectiveDate`)
+        values (#{TeamChangeLog.empId,jdbcType=VARCHAR}, #{TeamChangeLog.nowCst,jdbcType=VARCHAR},
+        #{TeamChangeLog.nowSubCst,jdbcType=VARCHAR},#{TeamChangeLog.newCst,jdbcType=VARCHAR},#{TeamChangeLog.newSubCst,jdbcType=VARCHAR},#{TeamChangeLog.createUser,jdbcType=BIGINT},
+        #{TeamChangeLog.createTime}, #{TeamChangeLog.updateUser,jdbcType=BIGINT},
+        #{TeamChangeLog.updateTime},#{TeamChangeLog.effectiveDate})
+    </insert>
+
+    <update id="updateTeamChangeLogById" parameterType="com.capgemini.jtp.entity.TeamChangeLog">
+        update teamchangelog
+        <set>
+            <if test="TeamChangeLog.empId != null">
+                `empId` = #{TeamChangeLog.empId,jdbcType=VARCHAR},
+            </if>
+            <if test="TeamChangeLog.newCst != null">
+                `newCst` = #{TeamChangeLog.newCst,jdbcType=VARCHAR},
+            </if>
+            <if test="TeamChangeLog.newSubCst != null">
+                `newSubCst` = #{TeamChangeLog.newSubCst,jdbcType=VARCHAR},
+            </if>
+            <if test="TeamChangeLog.nowCst != null">
+                `nowCst` = #{TeamChangeLog.nowCst,jdbcType=VARCHAR},
+            </if>
+            <if test="TeamChangeLog.nowSubCst != null">
+                `nowSubCst` = #{TeamChangeLog.nowSubCst,jdbcType=VARCHAR},
+            </if>
+            <if test="TeamChangeLog.effectiveDate != null">
+                `newSubCst` = #{TeamChangeLog.effectiveDate},
+            </if>
+            <if test="TeamChangeLog.updateUser != null">
+                `updateUser` = #{TeamChangeLog.updateUser,jdbcType=BIGINT},
+            </if>
+            <if test="TeamChangeLog.updateTime != null">
+                `updateTime` = #{TeamChangeLog.updateTime},
+            </if>
+        </set>
+        where id = #{TeamChangeLog.id,jdbcType=BIGINT}
+    </update>
+
+
+    <select id="getAll" resultType="com.capgemini.jtp.entity.TeamChangeLog">
+        select * from teamchangelog where isDeleted=0
+    </select>
+
+
+    <update id="updateEmployeeTeamById" parameterType="com.capgemini.jtp.entity.TeamChangeLog">
+        update employee
+        <set>
+            <if test="TeamChangeLog.newCst != null">
+                `cst` = #{TeamChangeLog.newCst,jdbcType=VARCHAR},
+            </if>
+            <if test="TeamChangeLog.newSubCst != null">
+                `subCst` = #{TeamChangeLog.newSubCst,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where empId = #{TeamChangeLog.empId,jdbcType=BIGINT}
+    </update>
+
+    <insert id="insertProBatch">
+        insert into teamchangelog (`empId`,`nowCst` ,`nowSubCst`, `newCst`,`newSubCst`,
+        `createUser`,`createTime`,`updateUser`,`updateTime`)
+        values
+        <foreach collection="pros" item="pro" separator=",">
+            (#{pro.empId,jdbcType=VARCHAR},#{pro.nowCst,jdbcType=VARCHAR},
+            #{pro.nowSubCst,jdbcType=VARCHAR},#{pro.newCst,jdbcType=VARCHAR}, #{pro.newSubCst,jdbcType=VARCHAR},
+            #{pro.createUser,jdbcType=BIGINT},#{pro.createTime},#{pro.updateUser,jdbcType=BIGINT},#{pro.updateTime}
+            )
+        </foreach>
+    </insert>
+</mapper>
+
+

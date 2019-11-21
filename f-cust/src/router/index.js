@@ -35,7 +35,7 @@ export default new Router({
       path: '/home',
       name: 'home',
       component: home,
-      meta: { requireAuth: true },
+      meta: {requireAuth: true},
       children: [
         {
           path: '/home',
@@ -54,13 +54,13 @@ export default new Router({
           path: 'declaration',
           name: 'declaration',
           component: declaration,
-          meta: { keepAlive: false, requireAuth: true }
+          meta: {keepAlive: false, requireAuth: true}
         },
         {
           path: 'certificateDecoration',
           name: 'certificateDecoration',
           component: certificateDecoration,
-          meta: { keepAlive: false, requireAuth: true }
+          meta: {keepAlive: false, requireAuth: true}
         }
       ]
     },

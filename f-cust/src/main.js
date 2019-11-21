@@ -17,6 +17,7 @@ import './utils/filter_utils'
 import 'font-awesome/css/font-awesome.min.css'
 import commonCss from './assets/css/common.css'
 import Router from 'vue-router'
+
 Vue.use(Router)
 const originalPush = Router.prototype.push
 Router.prototype.push = function push(location) {
@@ -35,7 +36,7 @@ Vue.prototype.putRequest = putRequest;
 Vue.prototype.isNotNullORBlank = isNotNullORBlank;
 
 //每次路由切换的时候，进行异步操作，检查用户信息
-router.beforeEach((to, from, next)=> {
+router.beforeEach((to, from, next) => {
     if (to.name == 'Login') {
       next();
       return;

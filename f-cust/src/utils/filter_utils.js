@@ -1,8 +1,10 @@
 //年月日提交封装
 //author: lmh <minhao.liu@capgemini.com>
 import Vue from 'vue'
+
 Vue.filter("formatDate", formatDate);
 Vue.prototype.formatDate = formatDate;
+
 function formatDate(value) {
   var date = new Date(value);
   var year = date.getFullYear();
@@ -16,6 +18,7 @@ function formatDate(value) {
   }
   return year + "-" + month + "-" + day;
 }
+
 Vue.filter("formatDateTime", function formatDateTime(value) {
   var date = new Date(value);
   var year = date.getFullYear();

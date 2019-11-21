@@ -99,10 +99,5 @@
     text-align: center;
     color: #505458;
   }
-  .login_remember {
-    margin: 0px 0px 35px 0px;
-    text-align: left;
-  }
-
 
 </style>

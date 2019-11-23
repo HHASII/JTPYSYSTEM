@@ -1,7 +1,6 @@
 # vuehr for Capgemini JTP 
 
 > A Vue.js project for Capgemini JTP Biz Case
-> Author: 刘旻昊 <minhao.liu@capgemini.com>
 > Feel free to contact me (wechat:liuminhaoo/phone:18340817726/e-mail) or Yiqi (e-mail:yiqi.li@capgemini.com) if any problem.
 
 ## Build Setup
